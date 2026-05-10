@@ -1,4 +1,3 @@
-
 const http = require("http");
 const crypto = require("crypto");
 const fs = require("fs");
@@ -18,6 +17,7 @@ const MODEL_TIMEOUT_MS = Number(process.env.MODEL_TIMEOUT_MS || 70000);
 const MESSAGE_FILE = resolveWritableDataPath("messages.json");
 const MESSAGE_LIMIT = 200;
 const MESSAGE_MOODS = new Set(["sunny", "focus", "brave", "calm", "spark"]);
+let messageWriteQueue = Promise.resolve();
 const FLAT_PUBLIC_FILES = new Map(
   [
     "index.html",
@@ -55,7 +55,7 @@ function loadEnv() {
     const equals = trimmed.indexOf("=");
     if (equals === -1) continue;
     const key = trimmed.slice(0, equals).trim();
-    const value = trimmed.slice(equals + 1).trim().replace(/^[\'"]|[\'"]$/g, "");
+    const value = trimmed.slice(equals + 1).trim().replace(/^['"]|['"]$/g, "");
     if (!process.env[key]) process.env[key] = value;
   }
 }
@@ -110,6 +110,12 @@ async function readMessages() {
 async function writeMessages(messages) {
   await fsp.mkdir(path.dirname(MESSAGE_FILE), { recursive: true });
   await fsp.writeFile(MESSAGE_FILE, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
+}
+
+function withMessageWriteLock(task) {
+  const run = messageWriteQueue.then(task, task);
+  messageWriteQueue = run.catch(() => {});
+  return run;
 }
 
 async function readCombinedJson(relativePaths) {
@@ -196,13 +202,57 @@ function hasEnglishQuestionText(question) {
   return !hasCjk(question.prompt) && Array.isArray(question.options) && question.options.every((option) => !hasCjk(option));
 }
 
+function countWords(value) {
+  return String(value || "").trim().split(/\s+/).filter(Boolean).length;
+}
+
+function hasReasonableQuizLength(question, options = {}) {
+  const promptLimit = options.variant ? 65 : 75;
+  const optionLimit = options.variant ? 22 : 24;
+  const prompt = String(question.prompt || "");
+  if (prompt.length > 430 || countWords(prompt) > promptLimit) return false;
+  return (question.options || []).every((option) => String(option || "").length <= 170 && countWords(option) <= optionLimit);
+}
+
 function naturalChinese(value, fallback) {
   const text = String(value || "").trim();
   return hasCjk(text) ? text : fallback;
 }
 
+function questionConceptKey(question = {}) {
+  const topic = String(question.topic || "General").trim();
+  const concept = String(question.subtopic || question.topic || "General").trim();
+  return `${topic}::${concept}`.toLowerCase();
+}
+
+function questionMatchesWeakConcept(question, weakConcepts = []) {
+  if (!Array.isArray(weakConcepts) || !weakConcepts.length) return false;
+  const questionKey = questionConceptKey(question);
+  const topic = String(question.topic || "").toLowerCase();
+  const subtopic = String(question.subtopic || "").toLowerCase();
+  return weakConcepts.some((item) => {
+    const concept = String(item?.concept || "").toLowerCase();
+    const itemTopic = String(item?.topic || "").toLowerCase();
+    const itemKey = `${itemTopic}::${concept}`;
+    return (
+      (itemKey !== "::" && questionKey === itemKey) ||
+      (concept && subtopic === concept) ||
+      (concept && subtopic.includes(concept)) ||
+      (itemTopic && topic === itemTopic)
+    );
+  });
+}
+
 function localSet(bank, body = {}) {
   const avoid = new Set(body.avoidIds || []);
+  if (body.mode === "mistake" && Array.isArray(body.weakConcepts) && body.weakConcepts.length) {
+    const exactMatches = bank.filter((q) => !avoid.has(q.id) && questionMatchesWeakConcept(q, body.weakConcepts));
+    const weakTopics = new Set(body.weakConcepts.map((item) => String(item.topic || "")).filter(Boolean));
+    const topicMatches = bank.filter((q) => !avoid.has(q.id) && !exactMatches.includes(q) && weakTopics.has(q.topic));
+    const fill = bank.filter((q) => !avoid.has(q.id) && !weakTopics.has(q.topic));
+    return [...shuffle(exactMatches), ...shuffle(topicMatches), ...shuffle(fill)].slice(0, 10);
+  }
+
   const topicPool = bank.filter((q) => {
     if (avoid.has(q.id)) return false;
     if (body.topic && body.topic !== "All") return q.topic === body.topic;
@@ -655,7 +705,15 @@ function validateGeneratedQuestions(payload) {
   const questions = Array.isArray(payload) ? payload : payload.questions;
   if (!Array.isArray(questions)) return [];
   return questions
-    .filter((q) => q.prompt && Array.isArray(q.options) && q.options.length === 4 && Number.isInteger(q.answerIndex) && hasEnglishQuestionText(q))
+    .filter(
+      (q) =>
+        q.prompt &&
+        Array.isArray(q.options) &&
+        q.options.length === 4 &&
+        Number.isInteger(q.answerIndex) &&
+        hasEnglishQuestionText(q) &&
+        hasReasonableQuizLength(q)
+    )
     .slice(0, 10)
     .map((q, index) => ({
       id: `api-${Date.now()}-${index + 1}`,
@@ -674,7 +732,15 @@ function validateGeneratedQuestions(payload) {
 
 function validateVariantQuestion(payload, baseQuestion = {}) {
   const raw = payload?.question || (Array.isArray(payload?.questions) ? payload.questions[0] : payload);
-  if (!raw || !raw.prompt || !Array.isArray(raw.options) || raw.options.length !== 4 || !Number.isInteger(raw.answerIndex) || !hasEnglishQuestionText(raw)) {
+  if (
+    !raw ||
+    !raw.prompt ||
+    !Array.isArray(raw.options) ||
+    raw.options.length !== 4 ||
+    !Number.isInteger(raw.answerIndex) ||
+    !hasEnglishQuestionText(raw) ||
+    !hasReasonableQuizLength(raw, { variant: true })
+  ) {
     return null;
   }
 
@@ -715,8 +781,11 @@ async function handleGenerateSet(req, res) {
     "The exam is in English: prompt and all four options MUST be English. Do not put Chinese in prompt or options.",
     "The student review experience is Chinese: explanation and reviewHint MUST be natural Chinese.",
     "Whenever explanation or reviewHint uses a Chinese course term, immediately add the English original in parentheses, for example: 合谋（collusion）.",
+    "Every question, correct answer, explanation, and review hint must be explainable by the supplied course digest/source excerpts or by standard concepts clearly present in those materials.",
+    "Stay within course scope. If the source context is weak for a requested concept, choose a better-supported course concept instead. Never invent case facts, numbers, definitions, causal claims, or unsupported exceptions.",
     "Make options plausible but keep one unambiguously correct answer. Avoid copying the example questions.",
-    "Keep questions short, direct, and concept-focused. Use the examples only as public-safe style references, not as text to copy.",
+    "Keep questions short, direct, and concept-focused. Mirror the real quiz style: most stems should be one sentence and 6-30 words; applied scenarios may be 1-2 sentences but should normally stay under 55 words. Options should usually be 1-12 words and never become long paragraphs.",
+    "Use the examples only as public-safe style references, not as text to copy.",
     "Prefer course-specific facts, case numbers, definitions, and strategic trade-offs over generic marketing trivia.",
     "",
     `Practice mode: ${
@@ -729,6 +798,7 @@ async function handleGenerateSet(req, res) {
     `Requested topic: ${body.topic || "All"}`,
     `Requested difficulty: ${body.difficulty || "mixed"}`,
     `Weak topics: ${(body.weakTopics || []).join(", ") || "none yet"}`,
+    `Weak concepts from the student's missed-concept notebook: ${Array.isArray(body.weakConcepts) ? body.weakConcepts.map((item) => `${item.topic || "Unknown"} / ${item.concept || "Unknown"} (${item.count || 1})`).join("; ") : "none yet"}`,
     "",
     "Course digest:",
     JSON.stringify(selectedDigest, null, 2),
@@ -787,6 +857,8 @@ async function handleGenerateVariant(req, res) {
     "The exam is in English: prompt and all four options MUST be English. Do not put Chinese in prompt or options.",
     "The student review experience is Chinese: explanation and reviewHint MUST be natural Chinese.",
     "Whenever explanation or reviewHint uses a Chinese course term, immediately add the English original in parentheses, for example: 道德风险（moral hazard）.",
+    "The answer and explanation must be grounded in the supplied course digest/source excerpts or a standard concept clearly present in those materials. Never invent facts, names, numbers, or unsupported exceptions.",
+    "Keep the variant close to the real quiz length. The stem should normally be 8-35 words, with a hard maximum near 60 words only when a short scenario is necessary. Each option should be concise, usually 1-12 words.",
     "Keep exactly one unambiguously correct option.",
     "",
     `Requested difficulty: ${body.difficulty || baseQuestion.difficulty || "mixed"}`,
@@ -854,6 +926,7 @@ async function handleReview(req, res) {
     "Return only valid JSON with this shape: {\"summary\":\"\",\"reviewPlan\":[\"\",\"\"],\"explanations\":[{\"questionId\":\"\",\"topic\":\"\",\"whyWrong\":\"\",\"keyIdea\":\"\",\"nextAction\":\"\"}]}",
     "summary, reviewPlan, whyWrong, keyIdea, and nextAction MUST be Chinese. It is fine to quote English answer choices when referring to the student's selected option or the correct option.",
     "Whenever you use a Chinese course term, immediately add the English original in parentheses, for example: 筛选（screening）, 价格弹性（price elasticity）.",
+    "Every explanation must be traceable to the supplied course excerpts or to the specific missed question's stated concept. If the source context is not enough, say the student should verify it in class materials; do not guess or over-explain.",
     "Do not be verbose. Do not introduce unrelated concepts. Avoid generic AI-sounding encouragement; write like a helpful classmate who knows the material.",
     "",
     `Score: ${Number(body.correct ?? 0)} / ${Number(body.total ?? wrongAnswers.length)}`,
@@ -887,17 +960,33 @@ async function handleCreateMessage(req, res) {
     return sendJson(res, 400, { error: "留言至少需要 2 个字符。" });
   }
 
-  const message = {
-    id: crypto.randomUUID(),
-    author,
-    text,
-    mood,
-    createdAt: new Date().toISOString()
-  };
-  const messages = await readMessages();
-  const nextMessages = [message, ...messages].slice(0, MESSAGE_LIMIT);
-  await writeMessages(nextMessages);
-  return sendJson(res, 201, { message, count: nextMessages.length });
+  return withMessageWriteLock(async () => {
+    const messages = await readMessages();
+    const now = Date.now();
+    const recentDuplicate = messages.find((item) => {
+      const createdAt = new Date(item.createdAt).getTime();
+      return (
+        item.text === text &&
+        item.author === author &&
+        Number.isFinite(createdAt) &&
+        now - createdAt < 15000
+      );
+    });
+    if (recentDuplicate) {
+      return sendJson(res, 200, { message: recentDuplicate, count: messages.length });
+    }
+
+    const message = {
+      id: crypto.randomUUID(),
+      author,
+      text,
+      mood,
+      createdAt: new Date().toISOString()
+    };
+    const nextMessages = [message, ...messages].slice(0, MESSAGE_LIMIT);
+    await writeMessages(nextMessages);
+    return sendJson(res, 201, { message, count: nextMessages.length });
+  });
 }
 
 async function serveStatic(req, res, pathname) {

@@ -1,5 +1,12 @@
 (() => {
   const glossary = [
+    ["错题本", "missed-concept notebook"],
+    ["薄弱知识点", "weak concept"],
+    ["知识点分布", "concept distribution"],
+    ["本组知识点", "concepts in this set"],
+    ["课堂内容", "course content"],
+    ["老师要求", "instructor guidance"],
+    ["同类题目", "similar question"],
     ["最惠客户条款", "most-favored-customer clause"],
     ["交易前信息不对称", "pre-contract information asymmetry"],
     ["交易后隐藏行动", "post-contract hidden action"],

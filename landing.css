@@ -645,10 +645,10 @@ h1 {
 
 @keyframes messageStream {
   from {
-    translate: 0 0;
+    translate: 105vw 0;
   }
   to {
-    translate: -50% 0;
+    translate: -105% 0;
   }
 }
 

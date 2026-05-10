@@ -447,6 +447,7 @@ select:focus {
 .message-grid {
   display: flex;
   width: max-content;
+  gap: 16px;
 }
 
 .message-stage.is-empty .message-grid {

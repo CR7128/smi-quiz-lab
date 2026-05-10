@@ -19,6 +19,10 @@ const els = {
   topicHint: document.querySelector("#topicHint"),
   difficultySelect: document.querySelector("#difficultySelect"),
   newSetBtn: document.querySelector("#newSetBtn"),
+  generationNote: document.querySelector("#generationNote"),
+  startCard: document.querySelector("#startCard"),
+  startFromQuizBtn: document.querySelector("#startFromQuizBtn"),
+  startWaitNote: document.querySelector("#startWaitNote"),
   apiSetBtn: document.querySelector("#apiSetBtn"),
   mistakeSetBtn: document.querySelector("#mistakeSetBtn"),
   resetStatsBtn: document.querySelector("#resetStatsBtn"),
@@ -26,6 +30,8 @@ const els = {
   avgAccuracy: document.querySelector("#avgAccuracy"),
   apiStatus: document.querySelector("#apiStatus"),
   masteryGrid: document.querySelector("#masteryGrid"),
+  wrongbookCount: document.querySelector("#wrongbookCount"),
+  wrongbookChart: document.querySelector("#wrongbookChart"),
   questionMeta: document.querySelector("#questionMeta"),
   questionTitle: document.querySelector("#questionTitle"),
   scoreChip: document.querySelector("#scoreChip"),
@@ -43,6 +49,7 @@ const els = {
   resultTitle: document.querySelector("#resultTitle"),
   reviewSummary: document.querySelector("#reviewSummary"),
   reviewPlan: document.querySelector("#reviewPlan"),
+  reviewConceptChart: document.querySelector("#reviewConceptChart"),
   wrongList: document.querySelector("#wrongList"),
   sourceGrid: document.querySelector("#sourceGrid"),
   messageMiniForm: document.querySelector("#messageMiniForm"),
@@ -99,12 +106,13 @@ async function init() {
 
   fillTopicSelect();
   renderApiStatus(status);
+  persistSanitizedStats();
   renderStats();
   renderSources();
   renderMessageCount(messages);
   bindEvents();
   renderPracticeControls();
-  startPreferredSet();
+  renderEmptyQuiz();
 }
 
 async function fetchJson(url, options) {
@@ -128,6 +136,7 @@ function bindEvents() {
   els.topicSelect.addEventListener("change", renderPracticeControls);
   els.difficultySelect.addEventListener("change", renderPracticeControls);
   els.newSetBtn.addEventListener("click", startPreferredSet);
+  els.startFromQuizBtn.addEventListener("click", startPreferredSet);
   els.apiSetBtn.addEventListener("click", startLocalSet);
   els.mistakeSetBtn.addEventListener("click", startMistakeSet);
   els.resetStatsBtn.addEventListener("click", resetStats);
@@ -157,6 +166,7 @@ function fillTopicSelect() {
 function setPracticeMode(mode) {
   state.practiceMode = mode === "chapter" ? "chapter" : "mock";
   renderPracticeControls();
+  if (!state.currentSet.length) renderEmptyQuiz();
 }
 
 function renderPracticeControls() {
@@ -167,7 +177,12 @@ function renderPracticeControls() {
   els.modeChapterBtn.setAttribute("aria-pressed", String(isChapter));
   els.topicField.classList.toggle("disabled", !isChapter);
   els.topicSelect.disabled = !isChapter;
-  els.newSetBtn.textContent = isChapter ? "AI 练这一章" : "AI 开始模拟";
+  const startLabel = startButtonLabel();
+  const waitText = generationWaitText();
+  els.newSetBtn.textContent = startLabel;
+  els.startFromQuizBtn.textContent = startLabel;
+  els.generationNote.textContent = waitText;
+  els.startWaitNote.textContent = waitText;
   els.apiSetBtn.textContent = "本地备用题";
 
   if (isChapter) {
@@ -183,6 +198,15 @@ function renderPracticeControls() {
   els.topicHint.textContent = state.apiReady
     ? `模拟会优先调用 AI 生成 10 道题；本地 ${count} 道题作为备用。`
     : `模拟会从全课程 ${count} 道题里抽 10 道。`;
+}
+
+function startButtonLabel() {
+  return state.practiceMode === "chapter" ? "开始生成本章题目" : "开始生成 10 题模拟";
+}
+
+function generationWaitText() {
+  if (!state.apiReady) return "本地备用题通常 1 秒内开始；接上 AI 后会显示预计等待时间。";
+  return "AI 出题通常需要 10-30 秒；Render 免费版冷启动时可能接近 1 分钟。";
 }
 
 function countQuestions(topic, difficulty) {
@@ -260,17 +284,16 @@ async function startApiSet() {
 }
 
 async function startMistakeSet() {
-  const mistakeIds = getMistakes();
-  const mistakes = mistakeIds.map((id) => state.bank.find((q) => q.id === id)).filter(Boolean);
-  if (!mistakes.length) {
-    showToast("还没有错题记录，先做完一组再回来练。");
+  const weakConcepts = getWrongBookItems(getStats()).slice(0, 6);
+  if (!weakConcepts.length) {
+    showToast("错题本还没有记录。先做完一组，再按薄弱知识点练。");
     return;
   }
 
   if (state.apiReady) {
-    setLoading(true, "AI 出错题中");
+      setLoading(true, "正在生成错题本题目");
     try {
-      const weakTopics = [...new Set(mistakes.map((question) => question.topic).filter(Boolean))].slice(0, 4);
+      const weakTopics = [...new Set(weakConcepts.map((item) => item.topic).filter(Boolean))].slice(0, 4);
       const payload = await fetchJson("/api/generate-set", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -279,26 +302,33 @@ async function startMistakeSet() {
           topic: "All",
           difficulty: els.difficultySelect.value,
           weakTopics,
-          avoidIds: mistakeIds
+          weakConcepts: weakConcepts.map((item) => ({
+            topic: item.topic,
+            concept: item.concept,
+            count: item.count
+          }))
         })
       });
       if (payload.mode === "local" && payload.warning) {
         throw new Error(payload.warning);
       }
-      const modeLabel = practiceLabel(payload.mode === "local" ? "错题重练" : `${payload.mode === "deepseek" ? "DeepSeek" : "AI"} 错题主题`);
+      const modeLabel = practiceLabel(payload.mode === "local" ? "错题本练习" : `${payload.mode === "deepseek" ? "DeepSeek" : "AI"} 错题本`);
       startSet(payload.questions, modeLabel);
-      if (payload.warning) showToast("AI 刚才没出成功，已先切到本地错题。");
+      if (payload.warning) showToast("AI 刚才没有生成成功，已先切到本地错题本题目。");
       return;
     } catch {
-      showToast("AI 请求失败，先用本地错题继续练。");
+      showToast("AI 请求失败，先用本地错题本题目继续练。");
     } finally {
       setLoading(false);
     }
   }
 
-  const selected = shuffle(mistakes);
-  const fill = shuffle(state.bank.filter((q) => !mistakeIds.includes(q.id)));
-  startSet([...selected, ...fill].slice(0, 10), "错题重练");
+  const selectedKeys = new Set(weakConcepts.map((item) => item.key));
+  const selectedTopics = new Set(weakConcepts.map((item) => item.topic));
+  const exactMatches = state.bank.filter((question) => selectedKeys.has(conceptKey(question)));
+  const topicMatches = state.bank.filter((question) => !selectedKeys.has(conceptKey(question)) && selectedTopics.has(question.topic));
+  const fill = state.bank.filter((question) => !selectedTopics.has(question.topic));
+  startSet([...shuffle(exactMatches), ...shuffle(topicMatches), ...shuffle(fill)].slice(0, 10), "错题本练习");
 }
 
 function selectedTopic() {
@@ -336,10 +366,32 @@ function startSet(questions, modeLabel) {
   state.selections = Array(questions.length).fill(null);
   state.submitted = false;
   state.review = null;
+  els.quizPanel.classList.remove("is-empty");
   els.resultsPanel.classList.add("hidden");
   els.questionTitle.dataset.mode = modeLabel;
   renderQuestion({ direction: 1, force: true });
   scrollQuizIntoView();
+}
+
+function renderEmptyQuiz() {
+  state.currentSet = [];
+  state.currentIndex = 0;
+  state.selections = [];
+  state.submitted = false;
+  els.quizPanel.classList.add("is-empty");
+  els.resultsPanel.classList.add("hidden");
+  els.questionMeta.textContent = "准备好了";
+  els.questionTitle.textContent = state.practiceMode === "chapter" ? "先选章节，再生成题目" : "点击开始，生成 10 题模拟";
+  els.scoreChip.textContent = "0 / 10";
+  els.progressDots.innerHTML = "";
+  els.questionPrompt.textContent = state.apiReady
+    ? "题目会结合题库与课程资料生成。开始前可以先选模式、章节和难度。"
+    : "题目已经按课程资料整理好。开始前可以先选模式、章节和难度。";
+  els.optionsList.innerHTML = "";
+  els.prevBtn.disabled = true;
+  els.nextBtn.disabled = true;
+  els.variantBtn.disabled = true;
+  els.submitBtn.disabled = true;
 }
 
 function balancedAnswerSlots(count) {
@@ -591,6 +643,7 @@ async function renderReview(result) {
   els.resultTitle.textContent = `得分 ${result.correct} / ${result.total}`;
   els.reviewSummary.textContent = "正在整理错题解析...";
   els.reviewPlan.innerHTML = "";
+  renderReviewConceptChart(result);
   els.wrongList.innerHTML = "";
   els.reviewMessageStatus.textContent = "";
   els.reviewMessageStatus.className = "review-message-status";
@@ -615,8 +668,8 @@ async function renderReview(result) {
     fillReview(review, result);
   } catch {
     const fallback = {
-      summary: "解析暂时没拿到。先按错题章节回看课件，再做一组同主题题。",
-      reviewPlan: ["先回看错题对应的课件页。", "再做一组同章题，确认判断规则能用出来。"],
+      summary: "解析暂时没拿到。先按薄弱知识点回看课件，再做一组同主题题。",
+      reviewPlan: ["先回看相关课件页。", "再做一组同章题，确认判断规则能用出来。"],
       explanations: []
     };
     fillReview(fallback, result);
@@ -630,7 +683,7 @@ function fillReview(review, result) {
     .join("");
 
   if (!result.wrongAnswers.length) {
-    els.wrongList.innerHTML = `<div class="wrong-item"><h3>这组全对</h3><p>状态不错。下一步可以切到 Hard，或者做一组全章节模拟保持手感。</p></div>`;
+    els.wrongList.innerHTML = `<div class="wrong-item is-clean"><h3>这组全对</h3><p>状态不错。下一步可以切到 Hard，或者做一组全章节模拟保持手感。</p></div>`;
     return;
   }
 
@@ -666,6 +719,49 @@ function localNextAction(question) {
   return `回到 ${source}，把这题背后的判断规则写成一句话，再做一题同主题变体。`;
 }
 
+function renderReviewConceptChart(result) {
+  const rows = new Map();
+  state.currentSet.forEach((question, index) => {
+    const key = conceptKey(question);
+    const current = rows.get(key) || {
+      key,
+      topic: question.topic || "General",
+      concept: conceptLabel(question),
+      total: 0,
+      missed: 0
+    };
+    current.total += 1;
+    if (state.selections[index] !== question.answerIndex) current.missed += 1;
+    rows.set(key, current);
+  });
+
+  const entries = [...rows.values()].sort((a, b) => b.missed - a.missed || b.total - a.total).slice(0, 6);
+  if (!entries.length) {
+    els.reviewConceptChart.innerHTML = `<div class="concept-empty">这一组还没有知识点记录。</div>`;
+    return;
+  }
+
+  const maxTotal = Math.max(...entries.map((item) => item.total), 1);
+  els.reviewConceptChart.innerHTML = entries
+    .map((item) => {
+      const width = Math.max(8, Math.round((item.total / maxTotal) * 100));
+      const missedWidth = item.total ? Math.round((item.missed / item.total) * 100) : 0;
+      return `
+        <div class="concept-row ${item.missed ? "has-miss" : "is-clear"}">
+          <div class="concept-row-label">
+            <strong>${escapeHtml(item.concept)}</strong>
+            <span>${escapeHtml(item.topic)} · ${item.missed ? `错 ${item.missed} / ${item.total}` : `${item.total} 题全对`}</span>
+          </div>
+          <div class="concept-track" style="--width:${width}%; --missed:${missedWidth}%">
+            <span></span>
+            <i></i>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 function naturalChineseText(value, fallback) {
   const text = String(value || "").trim();
   return /[\u3400-\u9fff]/.test(text) ? text : fallback;
@@ -673,36 +769,104 @@ function naturalChineseText(value, fallback) {
 
 function saveAttempt(result) {
   const stats = getStats();
+  const topicRows = state.currentSet.map((question, index) => ({
+    topic: question.topic || "General",
+    key: conceptKey(question),
+    concept: conceptLabel(question),
+    correct: state.selections[index] === question.answerIndex
+  }));
+  const wrongConceptRows = result.wrongAnswers.map((wrong) => conceptRecord(wrong.question));
+  const wrongBook = new Map((stats.wrongBook || []).map((item) => [item.key, { ...item }]));
+
+  for (const row of wrongConceptRows) {
+    const current = wrongBook.get(row.key) || {
+      key: row.key,
+      topic: row.topic,
+      concept: row.concept,
+      count: 0,
+      lastSeen: row.lastSeen
+    };
+    current.topic = row.topic;
+    current.concept = row.concept;
+    current.count += 1;
+    current.lastSeen = row.lastSeen;
+    wrongBook.set(row.key, current);
+  }
+
   const attempt = {
     at: new Date().toISOString(),
     total: result.total,
     correct: result.correct,
-    questionIds: state.currentSet.map((q) => q.id),
-    wrongIds: result.wrongAnswers.map((w) => w.questionId),
-    topics: state.currentSet.map((q, index) => ({
-      topic: q.topic,
-      correct: state.selections[index] === q.answerIndex
-    }))
+    topics: topicRows
   };
   stats.attempts.push(attempt);
-  stats.mistakes = [...new Set([...stats.mistakes, ...attempt.wrongIds])].filter((id) => !attempt.questionIds.includes(id) || attempt.wrongIds.includes(id));
+  stats.wrongBook = [...wrongBook.values()]
+    .sort((a, b) => b.count - a.count || String(b.lastSeen || "").localeCompare(String(a.lastSeen || "")))
+    .slice(0, 24);
   localStorage.setItem("smiQuizStats", JSON.stringify(stats));
+}
+
+function persistSanitizedStats() {
+  localStorage.setItem("smiQuizStats", JSON.stringify(getStats()));
 }
 
 function getStats() {
   try {
     const parsed = JSON.parse(localStorage.getItem("smiQuizStats") || "{}");
     return {
-      attempts: Array.isArray(parsed.attempts) ? parsed.attempts : [],
-      mistakes: Array.isArray(parsed.mistakes) ? parsed.mistakes : []
+      attempts: normalizeAttempts(parsed.attempts),
+      wrongBook: normalizeWrongBook(parsed.wrongBook)
     };
   } catch {
-    return { attempts: [], mistakes: [] };
+    return { attempts: [], wrongBook: [] };
   }
 }
 
-function getMistakes() {
-  return getStats().mistakes;
+function normalizeAttempts(attempts) {
+  if (!Array.isArray(attempts)) return [];
+  return attempts.map((attempt) => ({
+    at: attempt.at || new Date().toISOString(),
+    total: Number(attempt.total || 0),
+    correct: Number(attempt.correct || 0),
+    topics: Array.isArray(attempt.topics)
+      ? attempt.topics.map((row) => ({
+          topic: row.topic || "General",
+          key: row.key || `${row.topic || "General"}::${row.concept || row.subtopic || row.topic || "General"}`,
+          concept: row.concept || row.subtopic || row.topic || "General",
+          correct: Boolean(row.correct)
+        }))
+      : []
+  }));
+}
+
+function normalizeWrongBook(items) {
+  if (!Array.isArray(items)) return [];
+  return items
+    .map((item) => ({
+      key: item.key || `${item.topic || "General"}::${item.concept || "General"}`,
+      topic: item.topic || "General",
+      concept: item.concept || item.subtopic || item.topic || "General",
+      count: Math.max(0, Number(item.count || 0)),
+      lastSeen: item.lastSeen || ""
+    }))
+    .filter((item) => item.count > 0);
+}
+
+function conceptLabel(question) {
+  return String(question?.subtopic || question?.topic || "General").trim();
+}
+
+function conceptKey(question) {
+  return `${String(question?.topic || "General").trim()}::${conceptLabel(question)}`;
+}
+
+function conceptRecord(question) {
+  return {
+    key: conceptKey(question),
+    topic: String(question?.topic || "General").trim(),
+    concept: conceptLabel(question),
+    lastSeen: new Date().toISOString()
+  };
 }
 
 function renderStats() {
@@ -718,6 +882,7 @@ function renderStats() {
   );
   els.avgAccuracy.textContent = totals.total ? `${Math.round((totals.correct / totals.total) * 100)}%` : "--";
   renderMastery(stats);
+  renderWrongBook(stats);
 }
 
 function resetStats() {
@@ -747,6 +912,37 @@ function renderMastery(stats) {
         <div class="mastery-item" title="${escapeHtml(topic)}">
           <span>${escapeHtml(topic)} · ${row.total ? `${percent}%` : "new"}</span>
           <div class="bar"><div class="bar-fill" style="width:${percent}%"></div></div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function getWrongBookItems(stats) {
+  return normalizeWrongBook(stats?.wrongBook).sort(
+    (a, b) => b.count - a.count || String(b.lastSeen || "").localeCompare(String(a.lastSeen || ""))
+  );
+}
+
+function renderWrongBook(stats) {
+  const items = getWrongBookItems(stats).slice(0, 5);
+  els.wrongbookCount.textContent = String(items.length);
+  if (!items.length) {
+    els.wrongbookChart.innerHTML = `<div class="wrongbook-empty">做完一组后，这里会按知识点记录薄弱处。</div>`;
+    return;
+  }
+
+  const maxCount = Math.max(...items.map((item) => item.count), 1);
+  els.wrongbookChart.innerHTML = items
+    .map((item) => {
+      const width = Math.max(12, Math.round((item.count / maxCount) * 100));
+      return `
+        <div class="wrongbook-item">
+          <div>
+            <strong>${escapeHtml(item.concept)}</strong>
+            <span>${escapeHtml(item.topic)} · ${item.count} 次</span>
+          </div>
+          <div class="wrongbook-bar" style="--width:${width}%"><span></span></div>
         </div>
       `;
     })
@@ -873,14 +1069,21 @@ function createMessage({ author, text, mood }) {
 function setLoading(isLoading, label = "") {
   els.apiSetBtn.disabled = isLoading;
   els.newSetBtn.disabled = isLoading;
+  els.startFromQuizBtn.disabled = isLoading;
   els.mistakeSetBtn.disabled = isLoading;
   els.newSetBtn.classList.toggle("is-busy", isLoading);
+  els.startFromQuizBtn.classList.toggle("is-busy", isLoading);
   if (isLoading) {
     els.newSetBtn.textContent = label;
+    els.startFromQuizBtn.textContent = label;
     els.newSetBtn.setAttribute("aria-busy", "true");
+    els.startFromQuizBtn.setAttribute("aria-busy", "true");
   }
   else renderPracticeControls();
-  if (!isLoading) els.newSetBtn.removeAttribute("aria-busy");
+  if (!isLoading) {
+    els.newSetBtn.removeAttribute("aria-busy");
+    els.startFromQuizBtn.removeAttribute("aria-busy");
+  }
 }
 
 function showToast(message) {

@@ -131,7 +131,7 @@ async function submitMessage(event) {
 }
 
 function renderMessages(payload) {
-  const messages = Array.isArray(payload?.messages) ? payload.messages : [];
+  const messages = uniqueMessages(Array.isArray(payload?.messages) ? payload.messages : []);
   els.count.textContent = `${messages.length} 条留言`;
 
   if (!messages.length) {
@@ -141,17 +141,26 @@ function renderMessages(payload) {
   }
 
   els.stage.classList.remove("is-empty");
-  const visibleMessages = messages.slice(0, 24);
-  const loopMessages = visibleMessages.length === 1 ? [...visibleMessages, ...visibleMessages, ...visibleMessages] : visibleMessages;
-  const cards = loopMessages.map(renderCard).join("");
-  els.grid.innerHTML = `
-    <div class="message-track-group">${cards}</div>
-    <div class="message-track-group" aria-hidden="true">${cards}</div>
-  `;
-  const duration = Math.max(24, loopMessages.length * 7);
+  const visibleMessages = messages.slice(0, 36);
+  els.grid.innerHTML = visibleMessages.map(renderCard).join("");
+  const duration = Math.max(24, visibleMessages.length * 7);
   els.grid.style.setProperty("--scroll-duration", `${duration}s`);
   els.stage.scrollLeft = 0;
   startAutoScroll();
+}
+
+function uniqueMessages(messages) {
+  const seen = new Set();
+  return messages.filter((message) => {
+    const text = String(message.text || "").trim();
+    const author = String(message.author || "").trim();
+    const createdAt = new Date(message.createdAt).getTime();
+    const timeBucket = Number.isFinite(createdAt) ? Math.floor(createdAt / 30000) : "now";
+    const key = `${author}::${text}::${timeBucket}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function renderCard(message, index) {
@@ -231,12 +240,11 @@ function pauseForUser(duration = 2400) {
 }
 
 function normalizeLoopScroll() {
-  const loopWidth = els.grid.scrollWidth / 2;
-  if (!loopWidth || loopWidth <= els.stage.clientWidth) return;
-  if (els.stage.scrollLeft >= loopWidth) {
-    els.stage.scrollLeft -= loopWidth;
-  } else if (els.stage.scrollLeft < 0) {
-    els.stage.scrollLeft += loopWidth;
+  const maxScroll = els.stage.scrollWidth - els.stage.clientWidth;
+  if (!isAutoScrolling || maxScroll <= 0) return;
+  if (els.stage.scrollLeft >= maxScroll - 1) {
+    els.stage.scrollLeft = 0;
+    lastScrollTime = 0;
   }
 }
 

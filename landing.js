@@ -143,9 +143,9 @@ async function loadLandingMessages() {
     const response = await fetch("/api/messages");
     if (!response.ok) throw new Error("messages unavailable");
     const payload = await response.json();
-    const texts = (Array.isArray(payload.messages) ? payload.messages : [])
+    const texts = uniqueTexts((Array.isArray(payload.messages) ? payload.messages : [])
       .map((message) => String(message.text || "").trim())
-      .filter(Boolean);
+      .filter(Boolean));
     renderLandingMessages(texts.length ? texts : fallbackMessages);
   } catch {
     renderLandingMessages(fallbackMessages);
@@ -153,11 +153,20 @@ async function loadLandingMessages() {
 }
 
 function renderLandingMessages(texts) {
-  const recent = texts.slice(-18).reverse();
+  const recent = uniqueTexts(texts).slice(-18).reverse();
   const loop = recent.length >= 4 ? recent : [...recent, ...fallbackMessages].slice(0, 6);
-  const repeated = [...loop, ...loop, ...loop];
-  const row = repeated.map((text) => `<span>${escapeHtml(text)}</span>`).join("");
+  const row = uniqueTexts(loop).map((text) => `<span>${escapeHtml(text)}</span>`).join("");
   messageTrack.innerHTML = `<div class="landing-message-row">${row}</div>`;
+}
+
+function uniqueTexts(texts) {
+  const seen = new Set();
+  return texts.filter((text) => {
+    const key = text.trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function escapeHtml(value) {
