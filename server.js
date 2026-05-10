@@ -1,3 +1,4 @@
+
 const http = require("http");
 const crypto = require("crypto");
 const fs = require("fs");
@@ -14,9 +15,24 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4.1-mini";
 const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || "deepseek-v4-flash";
 const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com";
 const MODEL_TIMEOUT_MS = Number(process.env.MODEL_TIMEOUT_MS || 70000);
-const MESSAGE_FILE = path.join(ROOT, "data/messages.json");
+const MESSAGE_FILE = resolveWritableDataPath("messages.json");
 const MESSAGE_LIMIT = 200;
 const MESSAGE_MOODS = new Set(["sunny", "focus", "brave", "calm", "spark"]);
+const FLAT_PUBLIC_FILES = new Map(
+  [
+    "index.html",
+    "app.js",
+    "glossary.js",
+    "landing.css",
+    "landing.html",
+    "landing.js",
+    "messages.css",
+    "messages.html",
+    "messages.js",
+    "styles.css",
+    "topic-map.svg"
+  ].map((name) => [name, path.join(ROOT, name)])
+);
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -39,13 +55,37 @@ function loadEnv() {
     const equals = trimmed.indexOf("=");
     if (equals === -1) continue;
     const key = trimmed.slice(0, equals).trim();
-    const value = trimmed.slice(equals + 1).trim().replace(/^['"]|['"]$/g, "");
+    const value = trimmed.slice(equals + 1).trim().replace(/^[\'"]|[\'"]$/g, "");
     if (!process.env[key]) process.env[key] = value;
   }
 }
 
+function resolveReadablePath(relativePath) {
+  const normalized = path.normalize(relativePath).replace(/^(\.\.[/\\])+/, "");
+  const direct = path.join(ROOT, normalized);
+  if (fs.existsSync(direct)) return direct;
+
+  if (normalized.startsWith(`data${path.sep}`) || normalized.startsWith("data/")) {
+    const flatDataPath = path.join(ROOT, path.basename(normalized));
+    if (fs.existsSync(flatDataPath)) return flatDataPath;
+  }
+
+  if (normalized.startsWith(`public${path.sep}`) || normalized.startsWith("public/")) {
+    const publicName = path.basename(normalized);
+    const flatPublicPath = FLAT_PUBLIC_FILES.get(publicName);
+    if (flatPublicPath && fs.existsSync(flatPublicPath)) return flatPublicPath;
+  }
+
+  return direct;
+}
+
+function resolveWritableDataPath(filename) {
+  const dataDir = path.join(ROOT, "data");
+  return fs.existsSync(dataDir) ? path.join(dataDir, filename) : path.join(ROOT, filename);
+}
+
 async function readJson(relativePath) {
-  const filePath = path.join(ROOT, relativePath);
+  const filePath = resolveReadablePath(relativePath);
   return JSON.parse(await fsp.readFile(filePath, "utf8"));
 }
 
@@ -60,13 +100,14 @@ async function readMessages() {
 }
 
 async function writeMessages(messages) {
+  await fsp.mkdir(path.dirname(MESSAGE_FILE), { recursive: true });
   await fsp.writeFile(MESSAGE_FILE, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
 }
 
 async function readCombinedJson(relativePaths) {
   const parts = await Promise.all(
     relativePaths.map(async (relativePath) => {
-      const filePath = path.join(ROOT, relativePath);
+      const filePath = resolveReadablePath(relativePath);
       try {
         return JSON.parse(await fsp.readFile(filePath, "utf8"));
       } catch (error) {
@@ -854,7 +895,7 @@ async function handleCreateMessage(req, res) {
 async function serveStatic(req, res, pathname) {
   const fallback = pathname === "/" ? "/public/index.html" : pathname;
   if (!fallback.startsWith("/public/")) return sendText(res, 404, "Not found");
-  const filePath = path.normalize(path.join(ROOT, fallback));
+  const filePath = path.normalize(resolveReadablePath(fallback.slice(1)));
   if (!filePath.startsWith(ROOT)) return sendText(res, 403, "Forbidden");
 
   try {
