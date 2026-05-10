@@ -1,0 +1,988 @@
+[
+  {
+    "id": "fst-001",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Course framing",
+    "difficulty": "easy",
+    "source": "Intro_Strategic_Thinking.pdf p.2",
+    "prompt": "In the course framing, the 'art of strategy' is closest to which idea?",
+    "options": [
+      "Making higher-level decisions while anticipating strategic implications",
+      "Choosing the lowest possible price in every market",
+      "Maximizing advertising spend whenever revenue grows",
+      "Avoiding competitor reactions by ignoring them"
+    ],
+    "answerIndex": 0,
+    "explanation": "The intro slide describes strategy as making higher-level decisions and anticipating competitors' next marketing moves.",
+    "reviewHint": "Review the opening definition of strategy and why competitor anticipation matters."
+  },
+  {
+    "id": "fst-002",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Sequential games",
+    "difficulty": "easy",
+    "source": "Intro_Strategic_Thinking.pdf p.4",
+    "prompt": "What is the basic method for solving a sequential-move game?",
+    "options": [
+      "Backward induction: look forward and reason backward",
+      "Randomization: choose every action with equal probability",
+      "Revenue equivalence: compare second-highest valuations",
+      "Market segmentation: target the largest reachable group"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sequential games are solved by considering later choices first, then reasoning backward to the earlier move.",
+    "reviewHint": "Practice drawing a game tree and solving from the final decision node."
+  },
+  {
+    "id": "fst-003",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Cheap talk",
+    "difficulty": "medium",
+    "source": "Intro_Strategic_Thinking.pdf p.5",
+    "prompt": "The Charlie Brown example is used to warn against trusting cheap talk when:",
+    "options": [
+      "Interests are completely misaligned",
+      "The game is repeated forever",
+      "Both firms have identical marginal cost",
+      "Consumers are uniformly distributed"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cheap talk is not credible when the speaker benefits from misleading the listener and has no costly commitment.",
+    "reviewHint": "Connect credibility to incentives, not just to what a player says."
+  },
+  {
+    "id": "fst-004",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Repeated interaction",
+    "difficulty": "medium",
+    "source": "Intro_Strategic_Thinking.pdf p.5",
+    "prompt": "What does the chain store paradox emphasize in the course notes?",
+    "options": [
+      "Reputation can matter in repeated interactions",
+      "Dominant strategies disappear when payoffs are known",
+      "High elasticity always leads to higher prices",
+      "Retail competition always improves manufacturer profit"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide links the chain store paradox to reputation in repeated interactions.",
+    "reviewHint": "Review how actions today can influence beliefs and behavior in later periods."
+  },
+  {
+    "id": "fst-005",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Dominant strategies",
+    "difficulty": "medium",
+    "source": "Intro_Strategic_Thinking.pdf p.6",
+    "prompt": "In the simultaneous Intel/AMD R&D example, why do both firms choose R&D?",
+    "options": [
+      "R&D is a dominant strategy for both firms",
+      "No R&D gives both firms the monopoly outcome",
+      "The game is solved by a first-mover advantage",
+      "Both firms observe different product qualities"
+    ],
+    "answerIndex": 0,
+    "explanation": "Each firm prefers R&D regardless of what the other firm does, producing a prisoners' dilemma outcome.",
+    "reviewHint": "Review how to test whether a strategy is dominant row by row or column by column."
+  },
+  {
+    "id": "fst-006",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Nash equilibrium",
+    "difficulty": "easy",
+    "source": "Intro_Strategic_Thinking.pdf p.7",
+    "prompt": "A Nash equilibrium occurs when:",
+    "options": [
+      "Each player's strategy is a best response to the other's strategy",
+      "The highest valuation bidder always pays their own bid",
+      "A seller charges each consumer a different personalized price",
+      "A retailer sets wholesale price equal to marginal cost"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide defines Nash equilibrium as mutual best responses.",
+    "reviewHint": "Practice identifying best responses for each player and finding cells where they coincide."
+  },
+  {
+    "id": "fst-007",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Adverse selection",
+    "difficulty": "medium",
+    "source": "Intro_Strategic_Thinking.pdf p.8",
+    "prompt": "Adverse selection is primarily a problem of:",
+    "options": [
+      "Asymmetric information about a key feature before trade",
+      "Unobservable effort after a contract is signed",
+      "Excessive retail service caused by downstream competition",
+      "A bidder learning nothing from other bidders"
+    ],
+    "answerIndex": 0,
+    "explanation": "Adverse selection arises when one side knows more about quality, risk, or another key feature before trade.",
+    "reviewHint": "Contrast adverse selection with moral hazard: hidden type versus hidden action."
+  },
+  {
+    "id": "fst-008",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Screening and signaling",
+    "difficulty": "medium",
+    "source": "Intro_Strategic_Thinking.pdf pp.10-11",
+    "prompt": "Which statement best distinguishes screening from signaling?",
+    "options": [
+      "Screening is initiated by the uninformed player; signaling is initiated by the informed high-type player",
+      "Screening requires repeated games; signaling requires simultaneous games",
+      "Screening is only about auctions; signaling is only about pricing",
+      "Screening lowers elasticity; signaling raises marginal cost"
+    ],
+    "answerIndex": 0,
+    "explanation": "The course notes describe screening as an action by the uninformed player and signaling as an action by the informed high type.",
+    "reviewHint": "Use Intel's damaged chip for screening and education/advertising for signaling."
+  },
+  {
+    "id": "fst-009",
+    "topic": "Foundations of Strategic Thinking",
+    "subtopic": "Moral hazard",
+    "difficulty": "easy",
+    "source": "Intro_Strategic_Thinking.pdf p.13",
+    "prompt": "A typical solution to moral hazard is to:",
+    "options": [
+      "Make the player taking the action bear some of the consequences",
+      "Make products completely homogeneous",
+      "Prevent all forms of price discrimination",
+      "Use a sealed-bid second-price auction"
+    ],
+    "answerIndex": 0,
+    "explanation": "The summary says moral hazard is addressed by getting the informed actor to have skin in the game.",
+    "reviewHint": "Review how sales commissions and partial insurance create incentives."
+  },
+  {
+    "id": "seg-001",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Good segments",
+    "difficulty": "easy",
+    "source": "Segmentation and Positioning.pdf p.2",
+    "prompt": "Which set matches the course's characteristics of good segments?",
+    "options": [
+      "Identifiable, reachable, stable over time, and profitable",
+      "Large, expensive, fashionable, and temporary",
+      "Unobservable, homogeneous, costly, and random",
+      "Exclusive, sealed, ascending, and common value"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists identifiable, reachable, stable over time, and profitable.",
+    "reviewHint": "Memorize the four segment-quality criteria as a checklist."
+  },
+  {
+    "id": "seg-002",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Mass market strategy",
+    "difficulty": "easy",
+    "source": "Segmentation and Positioning.pdf p.2",
+    "prompt": "A mass market strategy is most appropriate when:",
+    "options": [
+      "Consumer needs are homogeneous",
+      "Competitors have strong brand-specific loyal customers",
+      "Segments are unstable and impossible to reach",
+      "Products must be launched before they are ready"
+    ],
+    "answerIndex": 0,
+    "explanation": "The mass market strategy slide says it fits homogeneous consumer needs and a generic value proposition.",
+    "reviewHint": "Connect mass market strategy to common core needs."
+  },
+  {
+    "id": "seg-003",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Adjacent segment strategy",
+    "difficulty": "easy",
+    "source": "Segmentation and Positioning.pdf p.3",
+    "prompt": "Under adjacent segment strategy, which segment should a firm target first?",
+    "options": [
+      "The most similar segment",
+      "The segment with the highest auction value",
+      "The segment where resale is easiest",
+      "The segment with the lowest willingness to pay"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says adjacent segment strategy targets the most similar segment first.",
+    "reviewHint": "Review the Toyota ladder example from Yaris through Lexus."
+  },
+  {
+    "id": "seg-004",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Niche strategy",
+    "difficulty": "medium",
+    "source": "Segmentation and Positioning.pdf p.4",
+    "prompt": "A small or niche segment strategy is especially useful when:",
+    "options": [
+      "Large dominant players ignore some segments",
+      "All consumers have identical preferences",
+      "The firm wants to remove all product differentiation",
+      "The market has no transportation costs"
+    ],
+    "answerIndex": 0,
+    "explanation": "The course notes recommend entering a segment that large players do not care about.",
+    "reviewHint": "Think of niche strategy as avoiding direct fights with dominant incumbents."
+  },
+  {
+    "id": "seg-005",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Industry norms",
+    "difficulty": "medium",
+    "source": "Segmentation and Positioning.pdf p.4",
+    "prompt": "Breaking the industry segmentation norm may be valuable because:",
+    "options": [
+      "The dominant segmentation approach may not be best for the firm or may be outdated",
+      "Good segments should never be stable over time",
+      "All firms must choose the same target market",
+      "It automatically prevents competitors from reacting"
+    ],
+    "answerIndex": 0,
+    "explanation": "The summary notes that the industry norm may not be best, especially as the industry evolves.",
+    "reviewHint": "Review when changing the segmentation basis can create opportunity."
+  },
+  {
+    "id": "seg-006",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Location choice",
+    "difficulty": "hard",
+    "source": "Segmentation and Positioning.pdf p.5",
+    "prompt": "In the beach vendor location metaphor with fixed prices and consumers buying from the closest vendor, the main strategic pressure is toward:",
+    "options": [
+      "Moving close to the center to capture more consumers",
+      "Moving to opposite extremes to maximize transportation costs",
+      "Charging each consumer a personalized price",
+      "Offering a two-part tariff to retailers"
+    ],
+    "answerIndex": 0,
+    "explanation": "With fixed prices, location determines market share, creating pressure to move toward the center.",
+    "reviewHint": "Separate the fixed-price location problem from the location-and-price differentiation problem."
+  },
+  {
+    "id": "seg-007",
+    "topic": "Segmentation and Positioning",
+    "subtopic": "Horizontal differentiation",
+    "difficulty": "hard",
+    "source": "Segmentation and Positioning.pdf p.6",
+    "prompt": "In the horizontal differentiation model with firms at 0 and 1, marginal cost 0, and transportation cost tx, the slide states equilibrium prices and profits are:",
+    "options": [
+      "Prices t; profits t/2",
+      "Prices 0; profits 0",
+      "Prices 1/t; profits 1/t",
+      "Prices v; profits v"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists equilibrium prices as t and profits as t/2.",
+    "reviewHint": "Remember the course takeaway: more differentiation can support higher profits."
+  },
+  {
+    "id": "cmp-001",
+    "topic": "Competitive Analysis",
+    "subtopic": "Bertrand competition",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.2",
+    "prompt": "In the course's one-period Bertrand setup with two firms, zero marginal cost, homogeneous consumers, and no capacity constraints, the unique Nash equilibrium is:",
+    "options": [
+      "Both firms set price equal to 0 and earn zero profits",
+      "Both firms set the monopoly price and split demand",
+      "One firm exits and the other charges valuation v",
+      "Both firms offer loyalty programs and raise prices"
+    ],
+    "answerIndex": 0,
+    "explanation": "With homogeneous products and no capacity limits, undercutting drives price to marginal cost, which is 0 in the slide.",
+    "reviewHint": "Review why any positive equal price can be profitably undercut."
+  },
+  {
+    "id": "cmp-002",
+    "topic": "Competitive Analysis",
+    "subtopic": "Repeated interaction",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.2",
+    "prompt": "According to the repeated interaction slide, finite repeated Bertrand interaction theoretically:",
+    "options": [
+      "Does not sustain collusion",
+      "Always sustains monopoly pricing",
+      "Eliminates the need for punishment",
+      "Makes detection irrelevant"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that finite periods do not sustain collusion theoretically, while infinite periods can under conditions.",
+    "reviewHint": "Review backward induction in finitely repeated games."
+  },
+  {
+    "id": "cmp-003",
+    "topic": "Competitive Analysis",
+    "subtopic": "Trigger strategy",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.2",
+    "prompt": "A trigger strategy for sustaining collusion says to:",
+    "options": [
+      "Set monopoly price while rivals cooperate, but revert to Bertrand punishment after deviation",
+      "Always set price equal to marginal cost regardless of rivals",
+      "Offer each customer their exact willingness to pay",
+      "Launch before the product is fully developed"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide describes a trigger strategy as cooperation followed by a worst-punishment reversion if a competitor deviates.",
+    "reviewHint": "Focus on the threat: future punishment must outweigh today's deviation gain."
+  },
+  {
+    "id": "cmp-004",
+    "topic": "Competitive Analysis",
+    "subtopic": "Sustaining collusion",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.3",
+    "prompt": "Which condition makes collusion harder to sustain?",
+    "options": [
+      "A larger one-time gain from deviation",
+      "More credible punishment",
+      "Better detection of deviations",
+      "Larger possible punishment"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that larger gains on deviation make collusion harder to sustain.",
+    "reviewHint": "Compare the short-run temptation to deviate with the long-run cost of punishment."
+  },
+  {
+    "id": "cmp-005",
+    "topic": "Competitive Analysis",
+    "subtopic": "Credible threats",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.3",
+    "prompt": "Which item is listed as a way to make threats credible?",
+    "options": [
+      "Following through",
+      "Hiding all price changes",
+      "Removing every punishment",
+      "Making demand less observable"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists following through, clarity, punishment size, detection technology, and match-the-competition clauses.",
+    "reviewHint": "Credibility depends on whether the threatened action will actually happen."
+  },
+  {
+    "id": "cmp-006",
+    "topic": "Competitive Analysis",
+    "subtopic": "Loyalty programs",
+    "difficulty": "medium",
+    "source": "Competition.pdf p.4",
+    "prompt": "When both players imitate with loyalty programs, the slide characterizes the outcome as:",
+    "options": [
+      "Reduced competition and higher profits for both firms",
+      "A prisoners' dilemma with lower profits for both firms",
+      "A complete return to one-period Bertrand pricing",
+      "A first-degree price discrimination system"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide calls this healthy imitation, with reduced competition, safer price increases, and higher profits for both firms.",
+    "reviewHint": "Review how loyalty programs make price cuts less effective."
+  },
+  {
+    "id": "cmp-007",
+    "topic": "Competitive Analysis",
+    "subtopic": "Targeted rebates",
+    "difficulty": "hard",
+    "source": "Competition.pdf p.5",
+    "prompt": "The GM Card example is used to illustrate that targeted rebates to loyal customers can:",
+    "options": [
+      "Reduce price competition",
+      "Guarantee Bertrand zero-profit outcomes",
+      "Make all buyers pay the same net price",
+      "Eliminate the value of brand preference information"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that offering rebates to loyal customers can reduce price competition.",
+    "reviewHint": "Connect targeted rebates to softer competition rather than across-the-board price cuts."
+  },
+  {
+    "id": "cmp-008",
+    "topic": "Competitive Analysis",
+    "subtopic": "Strategic cooperation",
+    "difficulty": "easy",
+    "source": "Competition.pdf p.4",
+    "prompt": "Which of the following is listed as a mechanism for strategic cooperation?",
+    "options": [
+      "Complements such as hardware and software",
+      "Ignoring monitoring and detection",
+      "Choosing no target segment",
+      "Forbidding all customer information"
+    ],
+    "answerIndex": 0,
+    "explanation": "The strategic cooperation slide lists complements, most-favored-customer clauses, deep price cuts, loyalty programs, and targeted rebates.",
+    "reviewHint": "Review the cooperation mechanisms as alternatives to pure price war."
+  },
+  {
+    "id": "sfb-001",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Moral hazard",
+    "difficulty": "easy",
+    "source": "Salesforce and Bargaining.pdf p.1",
+    "prompt": "Why is salesforce effort treated as a moral hazard problem?",
+    "options": [
+      "Effort is typically not observable",
+      "Product quality is known only before trade",
+      "Customers can resell the product costlessly",
+      "Bids are sealed and simultaneous"
+    ],
+    "answerIndex": 0,
+    "explanation": "The salesforce slide says effort is typically not observable, so incentives must be built into compensation.",
+    "reviewHint": "Remember: moral hazard is hidden action after the contract."
+  },
+  {
+    "id": "sfb-002",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Bonus calculation",
+    "difficulty": "hard",
+    "source": "Salesforce and Bargaining.pdf p.1",
+    "prompt": "High effort raises sale probability from 60% to 80%. If high effort costs the salesperson $20K more than routine work, what minimum sale bonus induces high effort?",
+    "options": [
+      "$100K",
+      "$20K",
+      "$40K",
+      "$200K"
+    ],
+    "answerIndex": 0,
+    "explanation": "The incremental success probability is 0.20. The incentive constraint is 0.20 x bonus >= $20K, so bonus >= $100K.",
+    "reviewHint": "Use bonus >= effort cost / increase in sale probability."
+  },
+  {
+    "id": "sfb-003",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Bonus calculation",
+    "difficulty": "hard",
+    "source": "Practice questions.pdf q.4",
+    "prompt": "High effort raises sale probability from 15% to 45%, and the effort cost is $15. What minimum bonus induces high effort?",
+    "options": [
+      "$50",
+      "$15",
+      "$30",
+      "$150"
+    ],
+    "answerIndex": 0,
+    "explanation": "The probability increase is 0.30. The bonus must satisfy 0.30 x bonus >= 15, so bonus >= 50.",
+    "reviewHint": "Divide the effort cost by the probability lift."
+  },
+  {
+    "id": "sfb-004",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Discount factor",
+    "difficulty": "easy",
+    "source": "Salesforce and Bargaining.pdf p.2",
+    "prompt": "The bargaining slide defines the discount factor as:",
+    "options": [
+      "delta = 1 / (1 + r)",
+      "delta = p / (p - mc)",
+      "delta = A / pQ",
+      "delta = t / 2"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide defines the discount factor, a measure of patience, as delta = 1 / (1 + r).",
+    "reviewHint": "Higher interest rates mean lower patience and a lower discount factor."
+  },
+  {
+    "id": "sfb-005",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Patience",
+    "difficulty": "medium",
+    "source": "Salesforce and Bargaining.pdf p.2",
+    "prompt": "If players can make counteroffers in a very short time, the bargaining split approaches:",
+    "options": [
+      "1/2, 1/2",
+      "1, 0",
+      "0, 1",
+      "1/3, 2/3"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that when counteroffers are very quick, the split approaches half and half.",
+    "reviewHint": "Fast counteroffers reduce the advantage from moving first."
+  },
+  {
+    "id": "sfb-006",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Relative impatience",
+    "difficulty": "medium",
+    "source": "Salesforce and Bargaining.pdf p.2",
+    "prompt": "If Player 1 is twice as impatient as Player 2, the bargaining slide gives the split as:",
+    "options": [
+      "Player 1 gets 1/3 and Player 2 gets 2/3",
+      "Player 1 gets 2/3 and Player 2 gets 1/3",
+      "Both players get 1/2",
+      "Player 1 gets all the surplus"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that when Player 1 is twice as impatient, the split is 1/3 and 2/3.",
+    "reviewHint": "The more impatient player receives a smaller share of the surplus."
+  },
+  {
+    "id": "sfb-007",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Bargaining pie",
+    "difficulty": "hard",
+    "source": "Salesforce and Bargaining.pdf p.3",
+    "prompt": "In the Cournot bargaining example, each firm earns 1/9 independently and collusion yields combined profit 1/4. What is the bargaining pie?",
+    "options": [
+      "1/36",
+      "1/9",
+      "1/4",
+      "1/16"
+    ],
+    "answerIndex": 0,
+    "explanation": "The pie is the collusive total minus outside options: 1/4 - 1/9 - 1/9 = 1/36.",
+    "reviewHint": "Always subtract the parties' outside options before splitting the surplus."
+  },
+  {
+    "id": "sfb-008",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Final-style bargaining",
+    "difficulty": "hard",
+    "source": "Practice questions.pdf q.2",
+    "prompt": "A manufacturer and retailer can jointly make $90M. If bargaining fails, manufacturer gets $22M and retailer gets $8M. With equal patience and equal bargaining power, how do they split $90M?",
+    "options": [
+      "Manufacturer $52M; retailer $38M",
+      "Manufacturer $45M; retailer $45M",
+      "Manufacturer $62M; retailer $28M",
+      "Manufacturer $30M; retailer $60M"
+    ],
+    "answerIndex": 0,
+    "explanation": "Outside options total $30M, so the surplus is $60M. Equal split of surplus gives $30M each above outside options: manufacturer $52M and retailer $38M.",
+    "reviewHint": "Split only the incremental surplus, then add each party's outside option."
+  },
+  {
+    "id": "sfb-009",
+    "topic": "Salesforce and Bargaining",
+    "subtopic": "Bargaining failure",
+    "difficulty": "easy",
+    "source": "Salesforce and Bargaining.pdf p.3",
+    "prompt": "Which factor is listed as a reason bargaining sometimes fails?",
+    "options": [
+      "Misperceptions about outside options or the cost of waiting",
+      "All parties having perfect information and equal patience",
+      "Using a Vickrey auction",
+      "Consumers being uniformly distributed on a line"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists misperceptions about outside options and cost of waiting as reasons bargaining can fail.",
+    "reviewHint": "Review how pretending not to be in a rush can shape bargaining beliefs."
+  },
+  {
+    "id": "prc-001",
+    "topic": "Pricing Strategy",
+    "subtopic": "Golden rule",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.2",
+    "prompt": "The golden rule of pricing says:",
+    "options": [
+      "(price - marginal cost) / price = 1 / price elasticity of demand",
+      "Advertising / revenue = 1 / price elasticity of demand",
+      "Profit = transportation cost divided by two",
+      "Wholesale price must always exceed marginal cost"
+    ],
+    "answerIndex": 0,
+    "explanation": "The pricing slide gives the Lerner-style rule: margin as a share of price equals inverse elasticity.",
+    "reviewHint": "Keep the pricing rule separate from the advertising rule."
+  },
+  {
+    "id": "prc-002",
+    "topic": "Pricing Strategy",
+    "subtopic": "Elasticity",
+    "difficulty": "easy",
+    "source": "Pricing.pdf p.2",
+    "prompt": "According to the pricing rule, higher price elasticity implies:",
+    "options": [
+      "A lower optimal price",
+      "A higher wholesale price in every channel",
+      "More product-line interlacing",
+      "Less need for incentive compatibility"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states directly: higher price elasticity means lower price.",
+    "reviewHint": "High elasticity means consumers are more price-sensitive."
+  },
+  {
+    "id": "prc-003",
+    "topic": "Pricing Strategy",
+    "subtopic": "Price discrimination",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.2",
+    "prompt": "Which condition helps price discrimination work?",
+    "options": [
+      "Absence of resale",
+      "Perfect resale at zero transaction cost",
+      "All consumers having identical observed traits",
+      "A legal requirement that all prices be identical"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists absence of resale, imperfect information, and high transaction costs as requirements.",
+    "reviewHint": "Resale can destroy price discrimination by letting low-price buyers resell to high-price buyers."
+  },
+  {
+    "id": "prc-004",
+    "topic": "Pricing Strategy",
+    "subtopic": "First-degree discrimination",
+    "difficulty": "easy",
+    "source": "Pricing.pdf p.3",
+    "prompt": "First-degree price discrimination sets price equal to:",
+    "options": [
+      "Each consumer's maximum willingness to pay",
+      "The second-highest bidder's valuation",
+      "Marginal cost for every consumer",
+      "A fixed membership fee only"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says the firm sets a price equal to each consumer's maximum willingness to pay.",
+    "reviewHint": "First degree is personalized pricing at the individual willingness-to-pay level."
+  },
+  {
+    "id": "prc-005",
+    "topic": "Pricing Strategy",
+    "subtopic": "Third-degree discrimination",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.4",
+    "prompt": "Under third-degree price discrimination, the firm should charge a lower price to:",
+    "options": [
+      "Higher-elasticity segments",
+      "Lower-elasticity segments",
+      "Segments with no resale restrictions",
+      "Consumers with the highest switching costs only"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says to use the golden rule for each group and charge lower prices to high-elasticity segments.",
+    "reviewHint": "High elasticity means a group is more responsive to price changes."
+  },
+  {
+    "id": "prc-006",
+    "topic": "Pricing Strategy",
+    "subtopic": "Second-degree discrimination",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.4",
+    "prompt": "Second-degree price discrimination relies on:",
+    "options": [
+      "Menus that induce consumers to self-select",
+      "Directly observing age, gender, or location only",
+      "Charging every consumer their exact valuation",
+      "A trigger strategy after deviation"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide describes second-degree discrimination as self-selection through menus.",
+    "reviewHint": "Review individual rationality and incentive compatibility."
+  },
+  {
+    "id": "prc-007",
+    "topic": "Pricing Strategy",
+    "subtopic": "Auctions",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.6",
+    "prompt": "In auction terminology, a bidder's value is:",
+    "options": [
+      "The highest price at which they still want to win the item",
+      "The seller's minimum acceptable wholesale price",
+      "The second-highest bid submitted by others",
+      "The expected advertising-to-revenue ratio"
+    ],
+    "answerIndex": 0,
+    "explanation": "The auction slide defines value as the highest price at which the bidder still wants to win.",
+    "reviewHint": "Value can include resale value, excitement, and the value of a competitor not owning the item."
+  },
+  {
+    "id": "prc-008",
+    "topic": "Pricing Strategy",
+    "subtopic": "Winner's curse",
+    "difficulty": "hard",
+    "source": "Pricing.pdf p.7",
+    "prompt": "In a common-value auction, avoiding the winner's curse means you should:",
+    "options": [
+      "Bid as if you have won and update your value based on what winning implies",
+      "Ignore what others might think the item is worth",
+      "Always bid above your private value",
+      "Assume the item's value differs completely across bidders"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says to bid as if you have won because your value should depend on what others think in common-value auctions.",
+    "reviewHint": "Winning can mean your estimate was more optimistic than others'."
+  },
+  {
+    "id": "prc-009",
+    "topic": "Pricing Strategy",
+    "subtopic": "English auction",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.7",
+    "prompt": "In an English auction, the course slide gives the bidding strategy as:",
+    "options": [
+      "Bid until the price exceeds your value",
+      "Submit one sealed bid equal to your value",
+      "Always bid at the final second",
+      "Bid the average of all other values"
+    ],
+    "answerIndex": 0,
+    "explanation": "English auctions are public, sequential, ascending, and the strategy is to stay in until price exceeds your value.",
+    "reviewHint": "English auctions reveal information as the price rises."
+  },
+  {
+    "id": "prc-010",
+    "topic": "Pricing Strategy",
+    "subtopic": "Vickrey auction",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.8",
+    "prompt": "In a Vickrey auction, the best bidding strategy given in the notes is to:",
+    "options": [
+      "Bid your value",
+      "Bid below your value by the expected margin",
+      "Bid the second-highest valuation",
+      "Wait until other bidders reveal their types"
+    ],
+    "answerIndex": 0,
+    "explanation": "A Vickrey auction is sealed and second-price; the slide says to bid your value.",
+    "reviewHint": "Truthful bidding works because the winner pays the second-highest bid."
+  },
+  {
+    "id": "prc-011",
+    "topic": "Pricing Strategy",
+    "subtopic": "Online auctions",
+    "difficulty": "medium",
+    "source": "Pricing.pdf p.9",
+    "prompt": "The eBay discussion says sniping can be useful because:",
+    "options": [
+      "Other bidders may learn from your bid if you bid early",
+      "eBay is an ascending first-price auction",
+      "The winner always pays their own bid",
+      "Learning is impossible in online auctions"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide notes that late bidding can prevent others from learning from your bid or paying attention.",
+    "reviewHint": "Connect sniping to information leakage."
+  },
+  {
+    "id": "prd-001",
+    "topic": "Product Strategy",
+    "subtopic": "Quality signals",
+    "difficulty": "easy",
+    "source": "Product Strategy.pdf p.2",
+    "prompt": "A good signal of high product quality is an action that:",
+    "options": [
+      "Low-quality firms find too costly to copy",
+      "All firms can copy at zero cost",
+      "Removes all information from the market",
+      "Forces every customer to pay the same price"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says high quality can be signaled by doing something the low-quality firm finds too costly to copy.",
+    "reviewHint": "Costly separation is the core of signaling."
+  },
+  {
+    "id": "prd-002",
+    "topic": "Product Strategy",
+    "subtopic": "Quality signals",
+    "difficulty": "easy",
+    "source": "Product Strategy.pdf p.2",
+    "prompt": "Which item is listed as a signal of quality?",
+    "options": [
+      "Money-back guarantee",
+      "Low transportation cost only",
+      "Finite repeated Bertrand competition",
+      "A hidden wholesale price"
+    ],
+    "answerIndex": 0,
+    "explanation": "The list includes money-back guarantees, extended warranties, high prices, advertising, and reputable retailers.",
+    "reviewHint": "Review why some promises are more credible for high-quality firms."
+  },
+  {
+    "id": "prd-003",
+    "topic": "Product Strategy",
+    "subtopic": "Product line competition",
+    "difficulty": "medium",
+    "source": "Product Strategy.pdf p.2",
+    "prompt": "Compared with segmentation, interlacing product lines tends to:",
+    "options": [
+      "Reduce differentiation",
+      "Increase differentiation",
+      "Eliminate product-line competition",
+      "Guarantee first-mover advantage"
+    ],
+    "answerIndex": 0,
+    "explanation": "The product-line slide says interlacing reduces differentiation, while segmentation keeps differentiation high.",
+    "reviewHint": "Review the diagram contrasting segmentation, interlacing, and standardization."
+  },
+  {
+    "id": "prd-004",
+    "topic": "Product Strategy",
+    "subtopic": "Product launch",
+    "difficulty": "medium",
+    "source": "Product Strategy.pdf p.3",
+    "prompt": "The product launch timing trade-off is between:",
+    "options": [
+      "First-mover advantage and premature product launch",
+      "Elasticity and resale",
+      "Wholesale price and retail service only",
+      "Common value and private value"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide explicitly frames launch timing as a trade-off between first-mover advantage and premature launch.",
+    "reviewHint": "Review when launching early helps and when it damages product readiness."
+  },
+  {
+    "id": "prd-005",
+    "topic": "Product Strategy",
+    "subtopic": "Product launch",
+    "difficulty": "hard",
+    "source": "Product Strategy.pdf p.3",
+    "prompt": "When first-mover advantage is large, the course notes suggest firms may want to:",
+    "options": [
+      "Launch their products at the same time",
+      "Wait until the rival launches first",
+      "Never launch until all uncertainty is gone",
+      "Use only umbrella branding"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states that if first-mover advantage is large, firms would want to launch at the same time.",
+    "reviewHint": "This is a strategic interaction: each firm wants to avoid being second."
+  },
+  {
+    "id": "prd-006",
+    "topic": "Product Strategy",
+    "subtopic": "Umbrella branding",
+    "difficulty": "medium",
+    "source": "Product Strategy.pdf p.3",
+    "prompt": "Which is a cost of umbrella branding?",
+    "options": [
+      "A new product's failure can affect the existing brand image",
+      "The new product cannot benefit from the established image",
+      "It always eliminates launch risk",
+      "It prevents any quality inference"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists the established image as a benefit and brand damage from failure as a cost.",
+    "reviewHint": "Review the benefit-cost logic before deciding whether to use an umbrella brand."
+  },
+  {
+    "id": "prd-007",
+    "topic": "Product Strategy",
+    "subtopic": "Umbrella branding",
+    "difficulty": "medium",
+    "source": "Product Strategy.pdf p.3",
+    "prompt": "When should a firm avoid umbrella branding according to the notes?",
+    "options": [
+      "When the new product is too risky or quality is too dissimilar from the brand image",
+      "When the new product quality is coherent with the brand image",
+      "When the product enjoys an established image",
+      "When lower launch cost matters"
+    ],
+    "answerIndex": 0,
+    "explanation": "The notes say not to use umbrella branding if the new product is too risky and to create a new brand if quality is too dissimilar.",
+    "reviewHint": "Use brand coherence and downside risk as the decision criteria."
+  },
+  {
+    "id": "adv-001",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Golden rule of advertising",
+    "difficulty": "medium",
+    "source": "Advertising and Distribution.pdf p.2",
+    "prompt": "The golden rule of advertising says firms should advertise more when:",
+    "options": [
+      "Markup is high and demand is very sensitive to advertising",
+      "Markup is low and advertising has no effect on demand",
+      "Retail competition makes service too high",
+      "The product is launched prematurely"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says to advertise more when the firm makes a lot per unit and demand is sensitive to advertising.",
+    "reviewHint": "Remember the rule combines profit margin and advertising elasticity."
+  },
+  {
+    "id": "adv-002",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Vertical relations",
+    "difficulty": "easy",
+    "source": "Advertising and Distribution.pdf p.3",
+    "prompt": "In vertical relations, the retailer typically controls:",
+    "options": [
+      "Retail price, in-store advertising, service, and returns",
+      "Only the physical design of the product",
+      "Only the manufacturer's marginal cost",
+      "Only the upstream wholesale contract"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says retailers set price and control in-store advertising, service, and returns.",
+    "reviewHint": "Review which decisions sit upstream with the manufacturer and downstream with the retailer."
+  },
+  {
+    "id": "adv-003",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Double marginalization",
+    "difficulty": "medium",
+    "source": "Advertising and Distribution.pdf p.4",
+    "prompt": "Vertical integration usually helps because it:",
+    "options": [
+      "Removes separate manufacturer and retailer markups",
+      "Forces the retailer to add another markup",
+      "Makes demand less sensitive to price",
+      "Eliminates all need for geographic coverage"
+    ],
+    "answerIndex": 0,
+    "explanation": "A separated manufacturer-retailer channel can suffer from double marginalization; integration internalizes the pricing decision.",
+    "reviewHint": "Compare one integrated markup with two sequential markups."
+  },
+  {
+    "id": "adv-004",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Retailers",
+    "difficulty": "easy",
+    "source": "Advertising and Distribution.pdf p.5",
+    "prompt": "Which reason for using retailers is listed in the notes?",
+    "options": [
+      "Retailers offer services, coverage, infrastructure, customer access, and competency",
+      "Retailers guarantee zero price competition",
+      "Retailers eliminate the need for customer information",
+      "Retailers make every product a common-value auction"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide lists retailer services, geographic coverage, infrastructure, customer access/information, service, and competency.",
+    "reviewHint": "Retailers can create value even when they create channel-control problems."
+  },
+  {
+    "id": "adv-005",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Two-part tariff",
+    "difficulty": "hard",
+    "source": "Advertising and Distribution.pdf p.5",
+    "prompt": "How can a two-part tariff help solve double marginalization?",
+    "options": [
+      "Set wholesale price equal to marginal cost and transfer surplus through a fixed fee",
+      "Set wholesale price above marginal cost and ban all fixed fees",
+      "Let the retailer set any price while the manufacturer ignores it",
+      "Charge each consumer a separate wholesale price"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says the retailer pays a fixed fee and a per-unit price equal to the manufacturer's marginal cost.",
+    "reviewHint": "The per-unit price fixes incentives; the fixed fee reallocates profit."
+  },
+  {
+    "id": "adv-006",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Retail service",
+    "difficulty": "hard",
+    "source": "Advertising and Distribution.pdf p.5",
+    "prompt": "Compared with vertical integration in the retailer-service setup, the separated channel has:",
+    "options": [
+      "Higher price and lower service",
+      "Lower price and higher service",
+      "The same price and the same service",
+      "Zero price and maximum service"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide states p > p_VI and s < s_VI in comparison to vertical integration.",
+    "reviewHint": "Review how wholesale markup distorts both price and service incentives."
+  },
+  {
+    "id": "adv-007",
+    "topic": "Advertising and Distribution",
+    "subtopic": "Retail competition",
+    "difficulty": "hard",
+    "source": "Advertising and Distribution.pdf p.5",
+    "prompt": "When retailers compete, the notes say manufacturer concerns include:",
+    "options": [
+      "Prices may be too low and service may be too high",
+      "Prices are always too high and service is always too low",
+      "Retailers stop competing in service",
+      "Two-part tariffs become mathematically impossible"
+    ],
+    "answerIndex": 0,
+    "explanation": "The slide says retail competition can make prices too low and service too high, leading the manufacturer to reduce retail competition.",
+    "reviewHint": "Think from the manufacturer's perspective, not only the consumer's perspective."
+  }
+]

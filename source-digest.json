@@ -1,0 +1,95 @@
+[
+  {
+    "topic": "Foundations of Strategic Thinking",
+    "source": "Intro_Strategic_Thinking.pdf",
+    "pages": "2-13",
+    "keyIdeas": [
+      "Strategy is the skill of making higher-level decisions while anticipating competitor moves.",
+      "Sequential games are solved by backward induction: look forward and reason backward.",
+      "Simultaneous games are solved by looking for dominant strategies and Nash equilibrium.",
+      "Cheap talk should not be trusted when interests are completely misaligned.",
+      "Repeated interactions can make reputation matter.",
+      "Asymmetric information includes adverse selection, screening, signaling, and moral hazard.",
+      "Moral hazard is addressed by making the informed actor bear some consequences."
+    ]
+  },
+  {
+    "topic": "Segmentation and Positioning",
+    "source": "Segmentation and Positioning.pdf",
+    "pages": "2-6",
+    "keyIdeas": [
+      "Good segments are identifiable, reachable, stable over time, and profitable.",
+      "Mass market strategy fits homogeneous needs.",
+      "Adjacent segment strategy targets the most similar segment first.",
+      "Niche strategy is useful when large dominant players ignore a segment.",
+      "Breaking an industry norm can be useful when the dominant segmentation approach no longer fits.",
+      "In horizontal differentiation, greater differentiation can support higher equilibrium profits."
+    ]
+  },
+  {
+    "topic": "Competitive Analysis",
+    "source": "Competition.pdf",
+    "pages": "2-5",
+    "keyIdeas": [
+      "In one-period Bertrand competition with homogeneous products, zero marginal cost, and no capacity limits, both firms price at marginal cost and earn zero profit.",
+      "Finite repeated interaction does not sustain collusion theoretically; infinite repetition can sustain it through trigger strategies if firms are patient enough.",
+      "Collusion is harder when deviation gains are high, detection is weak, punishment is small, or punishment lacks credibility.",
+      "Loyalty programs and targeted rebates can soften price competition.",
+      "Strategic cooperation can involve complements, most-favored-customer clauses, deep price cuts, loyalty programs, and targeted rebates."
+    ]
+  },
+  {
+    "topic": "Salesforce and Bargaining",
+    "source": "Salesforce and Bargaining.pdf; Practice questions.pdf",
+    "pages": "1-3; 1",
+    "keyIdeas": [
+      "Unobservable sales effort is a moral hazard problem.",
+      "A bonus can induce high effort when the expected incremental bonus covers the cost of effort.",
+      "In alternating-offer bargaining, patience is summarized by the discount factor delta = 1 / (1 + r).",
+      "When counteroffers can be made very quickly, bargaining shares approach an even split.",
+      "The bargaining pie is the extra surplus above the parties' outside options.",
+      "Bargaining can fail because parties misperceive outside options or the cost of waiting."
+    ]
+  },
+  {
+    "topic": "Pricing Strategy",
+    "source": "Pricing.pdf",
+    "pages": "2-9",
+    "keyIdeas": [
+      "The golden rule of pricing is (price - marginal cost) / price = 1 / elasticity.",
+      "Higher price elasticity implies a lower optimal price.",
+      "Price discrimination requires limited resale, imperfect information, or high transaction cost.",
+      "First-degree price discrimination charges each consumer their maximum willingness to pay.",
+      "Third-degree price discrimination uses observed characteristics and charges lower prices to high-elasticity groups.",
+      "Second-degree price discrimination uses menus and self-selection, requiring individual rationality and incentive compatibility.",
+      "English, Japanese, and Vickrey auctions can produce the same revenue under standard assumptions; Vickrey bidding strategy is to bid value."
+    ]
+  },
+  {
+    "topic": "Product Strategy",
+    "source": "Product Strategy.pdf",
+    "pages": "2-3",
+    "keyIdeas": [
+      "High quality can be signaled by actions low-quality firms find too costly to copy.",
+      "Quality signals include money-back guarantees, extended warranties, high prices, advertising, and reputable retailers.",
+      "Interlacing product lines reduces differentiation, while segmentation keeps differentiation high.",
+      "Product launch timing trades off first-mover advantage against premature launch risk.",
+      "Umbrella branding lowers cost and lends image to the new product, but failure can damage the brand.",
+      "Use umbrella branding when new-product quality is coherent with brand image; create a new brand when quality is too dissimilar or risk is high."
+    ]
+  },
+  {
+    "topic": "Advertising and Distribution",
+    "source": "Advertising and Distribution.pdf",
+    "pages": "2-5",
+    "keyIdeas": [
+      "The golden rule of advertising links advertising-to-revenue ratio to profit margin and demand elasticity with respect to advertising.",
+      "Advertise more when markup is high or demand is very sensitive to advertising.",
+      "Retailers control final price, in-store advertising, service, returns, and customer access.",
+      "Vertical integration can reduce double marginalization and lower consumer prices compared with separate manufacturer-retailer markups.",
+      "Retailers provide services, geographic coverage, infrastructure, customer access, and competency.",
+      "Two-part tariffs with wholesale price equal to marginal cost can solve double marginalization while transferring surplus through a fixed fee.",
+      "With retail competition, prices may be too low and service too high from the manufacturer's perspective."
+    ]
+  }
+]

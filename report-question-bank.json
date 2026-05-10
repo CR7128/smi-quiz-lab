@@ -1,0 +1,682 @@
+[
+  {
+    "id": "rpt-cournot-001",
+    "topic": "Cournot Competition",
+    "subtopic": "Model definition",
+    "difficulty": "easy",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf p.1",
+    "prompt": "In Cournot competition, firms primarily compete by choosing:",
+    "options": [
+      "Quantities of output",
+      "Consumer-specific prices",
+      "Advertising elasticity",
+      "Territorial boundaries"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines Cournot competition as an oligopoly model where firms choose output while considering rival quantities.",
+    "reviewHint": "Review the difference between quantity competition and price competition."
+  },
+  {
+    "id": "rpt-cournot-002",
+    "topic": "Cournot Competition",
+    "subtopic": "Market price",
+    "difficulty": "medium",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf p.1",
+    "prompt": "In the Cournot model, market price is determined by:",
+    "options": [
+      "Total supply produced by all firms relative to demand",
+      "The lowest single firm's posted price only",
+      "A fixed government price ceiling",
+      "A distributor's exclusive region"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report states that market price is determined when total supply from all firms equals total demand.",
+    "reviewHint": "Link each firm's quantity choice to the total industry quantity and resulting price."
+  },
+  {
+    "id": "rpt-cournot-003",
+    "topic": "Cournot Competition",
+    "subtopic": "Cournot vs Bertrand",
+    "difficulty": "medium",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf pp.1-2",
+    "prompt": "Compared with Bertrand competition, Cournot competition generally leads to:",
+    "options": [
+      "Lower aggregate output, higher prices, and higher profits",
+      "Higher aggregate output, lower prices, and zero profits",
+      "Perfect price discrimination across all consumers",
+      "No strategic interaction between firms"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report contrasts Cournot's strategic output restriction with Bertrand price wars that push prices closer to marginal cost.",
+    "reviewHint": "Remember: Cournot limits quantity; Bertrand intensifies price competition."
+  },
+  {
+    "id": "rpt-cournot-004",
+    "topic": "Cournot Competition",
+    "subtopic": "Collusion",
+    "difficulty": "hard",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf pp.2-3",
+    "prompt": "When Cournot firms collude, they try to behave more like:",
+    "options": [
+      "A single monopolist choosing industry output",
+      "A set of price-taking competitors",
+      "Retailers in separate exclusive territories",
+      "Bidders in a Vickrey auction"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says colluding firms make production decisions collectively to maximize joint profit, like one monopoly firm.",
+    "reviewHint": "Practice identifying the effect of collusion on total quantity, price, and joint profit."
+  },
+  {
+    "id": "rpt-cournot-005",
+    "topic": "Cournot Competition",
+    "subtopic": "Collusion fragility",
+    "difficulty": "hard",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf p.3",
+    "prompt": "Why is collusion in a Cournot setting fragile?",
+    "options": [
+      "Each firm may want to secretly expand output while others restrict output",
+      "Every firm is legally required to keep output fixed forever",
+      "Higher prices automatically eliminate all deviation incentives",
+      "Consumers cannot observe market prices"
+    ],
+    "answerIndex": 0,
+    "explanation": "A firm can gain market share by producing more while benefiting from the high price created by others' restraint.",
+    "reviewHint": "Connect this to the broader collusion idea: deviation gains can undermine cooperation."
+  },
+  {
+    "id": "rpt-stack-001",
+    "topic": "Stackelberg Competition",
+    "subtopic": "Model definition",
+    "difficulty": "easy",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf p.1",
+    "prompt": "Stackelberg competition differs from simultaneous competition because:",
+    "options": [
+      "One firm moves first and the follower responds after observing it",
+      "All firms choose prices at the exact same time",
+      "Consumers bid in ascending rounds",
+      "The manufacturer bans all retailers from selling"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes Stackelberg as sequential: a leader commits first, and a follower reacts.",
+    "reviewHint": "Tie Stackelberg to backward induction and first-mover commitment."
+  },
+  {
+    "id": "rpt-stack-002",
+    "topic": "Stackelberg Competition",
+    "subtopic": "Leader advantage",
+    "difficulty": "medium",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf pp.1-3",
+    "prompt": "The leader in Stackelberg competition can benefit because it:",
+    "options": [
+      "Shapes the market before the follower acts",
+      "Never has to consider the follower's response",
+      "Automatically charges each consumer their exact willingness to pay",
+      "Eliminates all need for capacity commitment"
+    ],
+    "answerIndex": 0,
+    "explanation": "By committing first, the leader can secure part of the market and make the follower respond within boundaries it created.",
+    "reviewHint": "Review why commitment can be valuable when rivals react strategically."
+  },
+  {
+    "id": "rpt-stack-003",
+    "topic": "Stackelberg Competition",
+    "subtopic": "Comparison with Bertrand",
+    "difficulty": "medium",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf p.2",
+    "prompt": "Compared with Bertrand competition, Stackelberg competition tends to produce:",
+    "options": [
+      "Lower output and higher prices",
+      "Prices equal to marginal cost and zero profits",
+      "No role for the follower",
+      "Only private-value auction outcomes"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says Stackelberg does not generate the same direct price-cutting race as Bertrand, so prices tend to be higher and output lower.",
+    "reviewHint": "Separate price competition from sequential quantity or capacity commitment."
+  },
+  {
+    "id": "rpt-stack-004",
+    "topic": "Stackelberg Competition",
+    "subtopic": "Follower role",
+    "difficulty": "medium",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf p.3",
+    "prompt": "In Stackelberg competition, the follower is best described as:",
+    "options": [
+      "A firm that reacts optimally after observing the leader's commitment",
+      "A firm that moves first and ignores rival behavior",
+      "A consumer who infers product value from reviews",
+      "A retailer protected by a territory contract"
+    ],
+    "answerIndex": 0,
+    "explanation": "The follower observes the leader's decision and then chooses the best response.",
+    "reviewHint": "Think of the follower as constrained but still strategic."
+  },
+  {
+    "id": "rpt-stack-005",
+    "topic": "Stackelberg Competition",
+    "subtopic": "Strategic implication",
+    "difficulty": "hard",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf p.1",
+    "prompt": "Why is Stackelberg competition useful for marketing strategy?",
+    "options": [
+      "It helps firms anticipate competitor reactions to pricing, production, and positioning moves",
+      "It proves competitors will never respond",
+      "It removes uncertainty about consumer demand entirely",
+      "It applies only to sealed-bid auctions"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report links Stackelberg logic to anticipating competitor reactions and making better strategic decisions.",
+    "reviewHint": "Use Stackelberg whenever the order of moves and commitment are central."
+  },
+  {
+    "id": "rpt-cascade-001",
+    "topic": "Information Cascades",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf p.1",
+    "prompt": "An information cascade occurs when individuals:",
+    "options": [
+      "Imitate observed actions instead of relying mainly on their own private information",
+      "Always choose the lowest price regardless of others",
+      "Receive identical public information at the same time",
+      "Are assigned exclusive sales territories"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines cascades as people following observed actions of earlier decision makers, sometimes abandoning private information.",
+    "reviewHint": "Remember that cascade behavior can be rational inference, not merely irrational copying."
+  },
+  {
+    "id": "rpt-cascade-002",
+    "topic": "Information Cascades",
+    "subtopic": "Formation conditions",
+    "difficulty": "medium",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf p.1",
+    "prompt": "Which condition helps an information cascade form?",
+    "options": [
+      "Sequential decisions with private information and observable prior actions",
+      "All consumers acting in complete isolation",
+      "A market with no uncertainty and no visible behavior",
+      "A manufacturer setting wholesale price equal to marginal cost"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report lists sequential decisions, private signals, and inference from observed actions as key ingredients.",
+    "reviewHint": "Ask: do later people see what earlier people did, but not what they knew?"
+  },
+  {
+    "id": "rpt-cascade-003",
+    "topic": "Information Cascades",
+    "subtopic": "Positive cascades",
+    "difficulty": "medium",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf p.1",
+    "prompt": "A positive information cascade in marketing can help create:",
+    "options": [
+      "Social proof, brand reputation, and trend momentum",
+      "Lower service quality and longer waiting time only",
+      "A guaranteed collapse of demand",
+      "Mandatory exclusive dealing"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says positive cascades can build social proof, enhance brand reputation, and turn products into trends.",
+    "reviewHint": "Connect KOLs, early adopters, and visible purchases to social proof."
+  },
+  {
+    "id": "rpt-cascade-004",
+    "topic": "Information Cascades",
+    "subtopic": "Negative cascades",
+    "difficulty": "medium",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf p.2",
+    "prompt": "The Google Glass example illustrates a negative cascade because:",
+    "options": [
+      "Early visible usage created privacy concerns and social resistance that discouraged later buyers",
+      "The product had no early users at all",
+      "The company used perfect second-degree price discrimination",
+      "Consumers could not observe anyone wearing the product"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes how early visible usage triggered privacy concerns and social stigma, creating negative signals.",
+    "reviewHint": "Review how early public reactions can become evidence for later consumers."
+  },
+  {
+    "id": "rpt-cascade-005",
+    "topic": "Information Cascades",
+    "subtopic": "Fragility",
+    "difficulty": "hard",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf p.1",
+    "prompt": "Information cascades are fragile because:",
+    "options": [
+      "They may be based on limited early information and can reverse when credible new information appears",
+      "They are always based on complete and accurate public information",
+      "They prevent all consumers from learning anything new",
+      "They require firms to charge one fixed price forever"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report notes that cascades can be misleading and can break once new credible information or direct experience arrives.",
+    "reviewHint": "Think of a cascade as strong-looking but information-thin."
+  },
+  {
+    "id": "rpt-network-001",
+    "topic": "Network Effects",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf p.1",
+    "prompt": "A network effect exists when a product becomes more valuable because:",
+    "options": [
+      "More users adopt the same or a compatible system",
+      "The firm lowers quality over time",
+      "Consumers cannot observe other users",
+      "The product is sold only in one territory"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines network effects as value increasing with adoption by other users of the same or compatible system.",
+    "reviewHint": "Ask whether each additional user raises value for other users."
+  },
+  {
+    "id": "rpt-network-002",
+    "topic": "Network Effects",
+    "subtopic": "Direct vs indirect",
+    "difficulty": "medium",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf p.1",
+    "prompt": "Which example best fits an indirect network effect?",
+    "options": [
+      "More console users attract more games, which makes the console more valuable",
+      "More phone users directly make calling more useful",
+      "A retailer receives a protected territory",
+      "A monopolist commits never to lower prices"
+    ],
+    "answerIndex": 0,
+    "explanation": "Indirect network effects operate through complementary goods or services, such as consoles and games.",
+    "reviewHint": "Direct equals user-to-user value; indirect equals users attract complements."
+  },
+  {
+    "id": "rpt-network-003",
+    "topic": "Network Effects",
+    "subtopic": "Tipping and lock-in",
+    "difficulty": "medium",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf p.1",
+    "prompt": "In network markets, tipping refers to:",
+    "options": [
+      "A tendency for the market to shift toward the most popular technology or system",
+      "A buyer waiting for future durable-goods price cuts",
+      "A firm assigning a dealer a geographic monopoly",
+      "A salesperson receiving a commission"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes tipping as the market moving toward the popular technology because adoption and complements reinforce it.",
+    "reviewHint": "Connect tipping to positive feedback and expectations."
+  },
+  {
+    "id": "rpt-network-004",
+    "topic": "Network Effects",
+    "subtopic": "Pricing strategy",
+    "difficulty": "hard",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf pp.2-3",
+    "prompt": "Why might a firm in a network market use penetration pricing?",
+    "options": [
+      "To build installed base quickly and move toward critical mass",
+      "To reduce adoption so service quality falls",
+      "To avoid all complementary products",
+      "To make switching costs disappear"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says network-market firms may price low or free early to accelerate adoption because value rises with user base.",
+    "reviewHint": "Short-run margin may be sacrificed to build long-run network value."
+  },
+  {
+    "id": "rpt-network-005",
+    "topic": "Network Effects",
+    "subtopic": "Strategy",
+    "difficulty": "medium",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf p.2",
+    "prompt": "In network markets, firms compete not only through product features but also by:",
+    "options": [
+      "Building expectations, installed base, and complementary ecosystems",
+      "Keeping products incompatible with every complement",
+      "Avoiding promotion to slow adoption",
+      "Charging every early user the highest possible price"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report emphasizes adoption, expectations, and ecosystem development as core parts of network-market competition.",
+    "reviewHint": "Review why a product in a network market is part of a system, not only a stand-alone item."
+  },
+  {
+    "id": "rpt-durable-001",
+    "topic": "Durable Goods Pricing",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf p.1",
+    "prompt": "Durable goods create special pricing problems because they:",
+    "options": [
+      "Continue providing value over time, so current purchases reduce future demand",
+      "Are consumed immediately and cannot be stored",
+      "Always require one uniform price forever",
+      "Have no secondhand market"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report explains that a durable good lasts, so buying today affects replacement demand in the future.",
+    "reviewHint": "Tie durability to timing, replacement, and consumers' ability to wait."
+  },
+  {
+    "id": "rpt-durable-002",
+    "topic": "Durable Goods Pricing",
+    "subtopic": "Inter-temporal price discrimination",
+    "difficulty": "medium",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf p.1",
+    "prompt": "Inter-temporal price discrimination means the firm:",
+    "options": [
+      "Charges higher prices early and lowers prices later to serve different willingness-to-pay groups",
+      "Charges every customer a different price at the same moment",
+      "Uses only wholesale contracts to control retailers",
+      "Gives every buyer a protected sales territory"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes high launch prices for early high-WTP consumers followed by lower prices for more price-sensitive buyers.",
+    "reviewHint": "Use time as the segmentation device."
+  },
+  {
+    "id": "rpt-durable-003",
+    "topic": "Durable Goods Pricing",
+    "subtopic": "Coase conjecture",
+    "difficulty": "hard",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf p.2",
+    "prompt": "The Coase conjecture says a durable-goods monopolist may lose market power when:",
+    "options": [
+      "It cannot commit to keeping future prices high and buyers rationally wait",
+      "Buyers cannot store products",
+      "The product has no future demand impact",
+      "The firm sells only through retailers"
+    ],
+    "answerIndex": 0,
+    "explanation": "If buyers expect future price cuts, they wait, forcing prices down toward marginal cost in the limiting case.",
+    "reviewHint": "The core issue is commitment: can the seller credibly avoid future markdowns?"
+  },
+  {
+    "id": "rpt-durable-004",
+    "topic": "Durable Goods Pricing",
+    "subtopic": "Strategic response",
+    "difficulty": "medium",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf pp.2-3",
+    "prompt": "Which strategy can help a durable-goods firm reduce consumers' incentive to wait?",
+    "options": [
+      "Limited availability or a vault strategy",
+      "Announcing guaranteed future price cuts",
+      "Making the product infinitely durable with no updates",
+      "Eliminating all complementary services"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report uses Disney's vault strategy as a way to make waiting costly because the product may not remain available.",
+    "reviewHint": "Look for mechanisms that make delayed purchase less attractive."
+  },
+  {
+    "id": "rpt-durable-005",
+    "topic": "Durable Goods Pricing",
+    "subtopic": "Business application",
+    "difficulty": "medium",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf p.3",
+    "prompt": "Apple's strategy relates to durable-goods pricing because it uses:",
+    "options": [
+      "Fast innovation, trade-ins, and ecosystem lock-in to manage replacement and waiting behavior",
+      "A permanent promise never to release new products",
+      "Only one fixed iPhone price for all generations",
+      "No complementary products or services"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report connects Apple to planned obsolescence-like innovation, trade-in programs, and complements such as iCloud and iMessage.",
+    "reviewHint": "Review how replacement cycles and secondhand markets affect durable-good demand."
+  },
+  {
+    "id": "rpt-vertical-001",
+    "topic": "Vertical Differentiation",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf p.1",
+    "prompt": "Vertical differentiation occurs when products differ mainly in:",
+    "options": [
+      "Quality, with most consumers agreeing which product is better",
+      "Taste, with no shared ranking of which product is better",
+      "The number of retailers in each territory",
+      "Whether a bid is sealed or public"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines vertical differentiation as quality differences where consumers generally agree which product is superior.",
+    "reviewHint": "Vertical = quality ladder; horizontal = preference variety."
+  },
+  {
+    "id": "rpt-vertical-002",
+    "topic": "Vertical Differentiation",
+    "subtopic": "Horizontal contrast",
+    "difficulty": "medium",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf p.1",
+    "prompt": "Which example best represents horizontal rather than vertical differentiation?",
+    "options": [
+      "Vanilla versus chocolate ice cream",
+      "Porsche versus Geo at the same price",
+      "Business class versus economy class",
+      "Ritz-Carlton versus Fairfield Inn"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report uses vanilla versus chocolate as horizontal differentiation because neither flavor is objectively better for everyone.",
+    "reviewHint": "Ask whether consumers share a quality ranking or simply have different tastes."
+  },
+  {
+    "id": "rpt-vertical-003",
+    "topic": "Vertical Differentiation",
+    "subtopic": "Lower quality strategy",
+    "difficulty": "hard",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf p.2",
+    "prompt": "A lower-quality product can sometimes increase profit because it:",
+    "options": [
+      "Creates separation from premium products and reduces direct price competition",
+      "Makes the firm identical to the premium competitor",
+      "Forces all customers to prefer the higher-quality product",
+      "Eliminates differences in willingness to pay"
+    ],
+    "answerIndex": 0,
+    "explanation": "Choosing a lower-quality position can target lower-WTP consumers and avoid head-to-head price pressure.",
+    "reviewHint": "Quality reduction here is a positioning choice, not simply making a worse product."
+  },
+  {
+    "id": "rpt-vertical-004",
+    "topic": "Vertical Differentiation",
+    "subtopic": "Second-degree comparison",
+    "difficulty": "medium",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf p.2",
+    "prompt": "How does second-degree price discrimination differ from vertical differentiation?",
+    "options": [
+      "Second-degree price discrimination is a single firm offering a menu; vertical differentiation often describes competing firms at different quality levels",
+      "Second-degree price discrimination is always about geographic territories",
+      "Vertical differentiation requires every consumer to have the same willingness to pay",
+      "The two concepts are identical in every respect"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report distinguishes a one-firm menu strategy from a broader competitive pattern across quality levels.",
+    "reviewHint": "One firm's menu versus market-level quality positions is the key distinction."
+  },
+  {
+    "id": "rpt-vertical-005",
+    "topic": "Vertical Differentiation",
+    "subtopic": "Examples",
+    "difficulty": "easy",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf p.3",
+    "prompt": "Which industry example from the report illustrates vertical differentiation?",
+    "options": [
+      "Airline economy class versus business class",
+      "Two identical retailers cutting the same product's price",
+      "A Vickrey auction for one collectible",
+      "A general product limit during a shortage"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes economy and business class as different quality levels serving different willingness-to-pay groups.",
+    "reviewHint": "Look for a quality ladder with a higher-price, higher-quality option."
+  },
+  {
+    "id": "rpt-demarketing-001",
+    "topic": "Demarketing",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf p.1",
+    "prompt": "Demarketing is best defined as a firm strategy to:",
+    "options": [
+      "Deliberately reduce, suppress, or redirect demand",
+      "Encourage consumers to search for supply on their own",
+      "Always maximize total demand from all customers",
+      "Remove all segmentation decisions"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines demarketing as active demand control, often in response to excessive or inappropriate demand.",
+    "reviewHint": "Think not only who to serve, but also who not to serve."
+  },
+  {
+    "id": "rpt-demarketing-002",
+    "topic": "Demarketing",
+    "subtopic": "Reverse marketing contrast",
+    "difficulty": "medium",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf p.1",
+    "prompt": "How does demarketing differ from reverse marketing?",
+    "options": [
+      "Demarketing is firm-led demand control; reverse marketing is consumer-led search for supply",
+      "Demarketing always lowers prices; reverse marketing always raises prices",
+      "Demarketing applies only to auctions",
+      "They are the same concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says demarketing is initiated by the firm to control demand, while reverse marketing involves consumers actively seeking products.",
+    "reviewHint": "The direction of initiative is the cleanest distinction."
+  },
+  {
+    "id": "rpt-demarketing-003",
+    "topic": "Demarketing",
+    "subtopic": "General demarketing",
+    "difficulty": "medium",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf pp.1-2",
+    "prompt": "General demarketing usually aims to:",
+    "options": [
+      "Reduce demand broadly across the market",
+      "Filter only one low-profit customer group",
+      "Make scarcity appear false while increasing demand",
+      "Increase resale in all channels"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report describes general demarketing as reducing demand for the entire market, often during shortages or capacity limits.",
+    "reviewHint": "Product limits during a shortage are a good example."
+  },
+  {
+    "id": "rpt-demarketing-004",
+    "topic": "Demarketing",
+    "subtopic": "Selective demarketing",
+    "difficulty": "medium",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf p.2",
+    "prompt": "Selective demarketing is mainly about:",
+    "options": [
+      "Filtering low-profit or less desirable segments and focusing on high-value customers",
+      "Reducing demand equally from every customer",
+      "Making consumers bid their value",
+      "Increasing intrabrand competition"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says selective demarketing uses segmentation and price sensitivity to prioritize more profitable customers.",
+    "reviewHint": "Connect selective demarketing to STP and customer profitability."
+  },
+  {
+    "id": "rpt-demarketing-005",
+    "topic": "Demarketing",
+    "subtopic": "Ostensible demarketing",
+    "difficulty": "hard",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf pp.2-3",
+    "prompt": "Ostensible demarketing can increase demand because it:",
+    "options": [
+      "Creates a perception of scarcity or authenticity while appearing to discourage purchase",
+      "Guarantees that all consumers lose interest",
+      "Removes all brand differentiation",
+      "Makes the product less visible to every customer"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report discusses strategies such as Hermès scarcity and Patagonia's 'Don't Buy This Jacket' as demand-shaping signals.",
+    "reviewHint": "Surface message and actual demand effect can point in opposite directions."
+  },
+  {
+    "id": "rpt-territories-001",
+    "topic": "Exclusive Territories",
+    "subtopic": "Definition",
+    "difficulty": "easy",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf p.1",
+    "prompt": "An exclusive territory gives a downstream firm:",
+    "options": [
+      "The right to sell within a specific geographic or customer area",
+      "The right to sell only a rival brand",
+      "The obligation to cut price to marginal cost",
+      "The ability to ignore manufacturer monitoring"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report defines exclusive territories as assigning one distributor, retailer, or franchisee exclusive selling rights in an area.",
+    "reviewHint": "Exclusive territory answers where a retailer may sell."
+  },
+  {
+    "id": "rpt-territories-002",
+    "topic": "Exclusive Territories",
+    "subtopic": "Intrabrand competition",
+    "difficulty": "medium",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf pp.1-2",
+    "prompt": "Exclusive territories mainly reduce:",
+    "options": [
+      "Intrabrand competition among retailers selling the same brand",
+      "All competition between different brands",
+      "Consumers' willingness to pay for quality",
+      "The need for local service investment"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report says exclusive territories reduce competition among retailers of the same brand in the same area.",
+    "reviewHint": "Intrabrand means same brand; interbrand means different brands."
+  },
+  {
+    "id": "rpt-territories-003",
+    "topic": "Exclusive Territories",
+    "subtopic": "Dealer incentives",
+    "difficulty": "medium",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf p.2",
+    "prompt": "Why can exclusive territories increase dealer investment in service or advertising?",
+    "options": [
+      "Dealers are more likely to capture returns from local investments in their protected area",
+      "Dealers know rivals will immediately take all customers",
+      "The manufacturer stops caring about service quality",
+      "The arrangement eliminates all monitoring needs"
+    ],
+    "answerIndex": 0,
+    "explanation": "Territorial protection reduces free-riding by other same-brand retailers, making local investment more attractive.",
+    "reviewHint": "Connect exclusive territories to the free-riding problem."
+  },
+  {
+    "id": "rpt-territories-004",
+    "topic": "Exclusive Territories",
+    "subtopic": "Enforcement",
+    "difficulty": "hard",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf p.1",
+    "prompt": "Exclusive territories are difficult to enforce when the manufacturer cannot:",
+    "options": [
+      "Monitor customer origins or detect cross-area selling",
+      "Tell whether the product is high quality",
+      "Choose a Vickrey auction format",
+      "Calculate price elasticity"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report notes that territorial rules require information and management ability to detect violations.",
+    "reviewHint": "A vertical restraint only works if behavior can be observed and enforced."
+  },
+  {
+    "id": "rpt-territories-005",
+    "topic": "Exclusive Territories",
+    "subtopic": "Exclusive dealing contrast",
+    "difficulty": "medium",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf p.3",
+    "prompt": "The key difference between exclusive territories and exclusive dealing is that:",
+    "options": [
+      "Exclusive territories control where to sell; exclusive dealing controls what brands to sell",
+      "Exclusive territories control product quality; exclusive dealing controls auction format",
+      "Exclusive territories are horizontal differentiation; exclusive dealing is moral hazard",
+      "There is no meaningful difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "The report distinguishes geographic/customer-area control from brand-line restrictions.",
+    "reviewHint": "Where to sell versus what to sell is the clean memory hook."
+  }
+]

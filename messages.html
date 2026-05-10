@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SMI 留言墙</title>
+    <link rel="stylesheet" href="/public/messages.css" />
+  </head>
+  <body>
+    <main class="wall-shell">
+      <header class="wall-hero">
+        <nav class="top-nav" aria-label="页面导航">
+          <a href="/">返回练习</a>
+          <a href="/public/landing.html">课程首页</a>
+        </nav>
+        <p class="legal-note">Unofficial student-made review tool. Not affiliated with or endorsed by Johns Hopkins University or the instructor.</p>
+
+        <div class="hero-grid">
+          <section class="hero-copy" aria-label="留言墙标题">
+            <span class="eyebrow">SMI 留言墙</span>
+            <h1>期末互助留言墙</h1>
+            <p>刷题累了，就在这里给大家留句话。可以匿名，也可以写上你的昵称。</p>
+          </section>
+
+          <form class="wall-form" id="wallForm">
+            <div class="form-title">
+              <strong>贴一张便签</strong>
+              <span id="messageCount">0 条留言</span>
+            </div>
+
+            <label for="authorInput">昵称</label>
+            <input id="authorInput" name="author" maxlength="24" autocomplete="off" placeholder="不填就是匿名同学" />
+
+            <label for="messageInput">留言</label>
+            <textarea id="messageInput" name="text" rows="4" maxlength="220" placeholder="写一句想对大家说的话"></textarea>
+
+            <div class="form-row">
+              <div>
+                <label for="moodInput">颜色</label>
+                <select id="moodInput" name="mood">
+                  <option value="sunny">暖黄色</option>
+                  <option value="focus">清醒蓝</option>
+                  <option value="brave">冲刺红</option>
+                  <option value="calm">淡定绿</option>
+                  <option value="spark">灵感粉</option>
+                </select>
+              </div>
+              <button id="submitMessageBtn" type="submit">贴上墙</button>
+            </div>
+          </form>
+        </div>
+      </header>
+
+      <section class="wall-board" aria-label="留言列表">
+        <div class="board-head">
+          <div>
+            <span class="eyebrow">同学加油站</span>
+            <h2>大家的打气便签</h2>
+          </div>
+          <div class="board-actions">
+            <button id="toggleScrollBtn" type="button" aria-pressed="false">暂停滚动</button>
+            <button id="refreshBtn" type="button">刷新</button>
+          </div>
+        </div>
+
+        <article class="pinned-message" aria-label="Leon 的置顶留言">
+          <div class="pin-badge">置顶</div>
+          <div>
+            <h3>Leon</h3>
+            <p>我做了一个复习网站，大家来试试吧！</p>
+          </div>
+          <a href="/" class="pinned-link">去练一组</a>
+        </article>
+
+        <div class="message-stage" id="messageStage">
+          <div class="message-grid" id="messageGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/public/glossary.js"></script>
+    <script src="/public/messages.js"></script>
+  </body>
+</html>

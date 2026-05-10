@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 390" role="img" aria-labelledby="title desc">
+  <title id="title">Strategic Market Intelligence knowledge map</title>
+  <desc id="desc">A compact visual map connecting strategy, competition, pricing, product, advertising, distribution, segmentation, salesforce, and bargaining.</desc>
+  <rect width="620" height="390" rx="22" fill="#293247"/>
+  <g fill="none" stroke="#e8ddca" stroke-opacity=".36" stroke-width="2">
+    <path d="M310 194 L146 88"/>
+    <path d="M310 194 L473 84"/>
+    <path d="M310 194 L508 203"/>
+    <path d="M310 194 L463 312"/>
+    <path d="M310 194 L301 332"/>
+    <path d="M310 194 L150 307"/>
+    <path d="M310 194 L111 200"/>
+  </g>
+  <circle cx="310" cy="194" r="62" fill="#fffdf8"/>
+  <text x="310" y="184" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#293247">Strategy</text>
+  <text x="310" y="210" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#71798a">games + incentives</text>
+  <g font-family="Inter, Arial, sans-serif" font-weight="700" font-size="16">
+    <g>
+      <rect x="52" y="55" width="188" height="66" rx="14" fill="#5f9f96"/>
+      <text x="146" y="83" text-anchor="middle" fill="#fffdf8">Segmentation</text>
+      <text x="146" y="104" text-anchor="middle" fill="#e4f1eb" font-size="12">positioning</text>
+    </g>
+    <g>
+      <rect x="380" y="51" width="186" height="66" rx="14" fill="#7489b5"/>
+      <text x="473" y="80" text-anchor="middle" fill="#fffdf8">Competition</text>
+      <text x="473" y="101" text-anchor="middle" fill="#dfe7f4" font-size="12">Bertrand + collusion</text>
+    </g>
+    <g>
+      <rect x="416" y="170" width="184" height="66" rx="14" fill="#b9955d"/>
+      <text x="508" y="199" text-anchor="middle" fill="#fffdf8">Pricing</text>
+      <text x="508" y="220" text-anchor="middle" fill="#f6ecd5" font-size="12">elasticity + auctions</text>
+    </g>
+    <g>
+      <rect x="366" y="279" width="194" height="66" rx="14" fill="#c97961"/>
+      <text x="463" y="308" text-anchor="middle" fill="#fffdf8">Product</text>
+      <text x="463" y="329" text-anchor="middle" fill="#f1e3e7" font-size="12">signals + branding</text>
+    </g>
+    <g>
+      <rect x="206" y="299" width="190" height="66" rx="14" fill="#5f9f96"/>
+      <text x="301" y="328" text-anchor="middle" fill="#fffdf8">Ad + Channels</text>
+      <text x="301" y="349" text-anchor="middle" fill="#e4f1eb" font-size="12">retail incentives</text>
+    </g>
+    <g>
+      <rect x="48" y="274" width="204" height="66" rx="14" fill="#7489b5"/>
+      <text x="150" y="303" text-anchor="middle" fill="#fffdf8">Salesforce</text>
+      <text x="150" y="324" text-anchor="middle" fill="#dfe7f4" font-size="12">moral hazard</text>
+    </g>
+    <g>
+      <rect x="30" y="167" width="162" height="66" rx="14" fill="#b9955d"/>
+      <text x="111" y="196" text-anchor="middle" fill="#fffdf8">Bargaining</text>
+      <text x="111" y="217" text-anchor="middle" fill="#f6ecd5" font-size="12">patience + pie</text>
+    </g>
+  </g>
+</svg>

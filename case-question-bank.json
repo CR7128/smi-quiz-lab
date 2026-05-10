@@ -1,0 +1,257 @@
+[
+  {
+    "id": "case-eco7-001",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Case question",
+    "difficulty": "easy",
+    "source": "Eco7 Case Opinion Question.pdf p.1",
+    "prompt": "The Eco7 case opinion question asks students to recommend mainly:",
+    "options": [
+      "Launch pricing, distribution, and whether Aventage stores should receive exclusivity",
+      "A national Super Bowl advertising campaign only",
+      "A merger between Avellin and Sevoline",
+      "A new auction format for motor oil distributors"
+    ],
+    "answerIndex": 0,
+    "explanation": "The prompt asks how Eco7 should be priced, how it affects wholesalers and DIFM stores, how it should be distributed, and whether Aventage stores should receive exclusivity.",
+    "reviewHint": "Frame the case around price, channel incentives, and exclusivity."
+  },
+  {
+    "id": "case-eco7-002",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Product positioning",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf p.7",
+    "prompt": "Eco7's strongest positioning is that it combines:",
+    "options": [
+      "Environmental benefits with performance comparable to a synthetic blend",
+      "The lowest possible price with no performance claim",
+      "A pure DIY-only offer with no installer role",
+      "A private-label identity with no Avellin brand support"
+    ],
+    "answerIndex": 0,
+    "explanation": "Eco7 is made from recycled oil, uses less production energy, and offers longevity/performance comparable to a synthetic blend.",
+    "reviewHint": "Do not position Eco7 as only green; the case also emphasizes performance."
+  },
+  {
+    "id": "case-eco7-003",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "DIFM consumer behavior",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf pp.3, 10",
+    "prompt": "Which fact most supports focusing Eco7 on the DIFM channel?",
+    "options": [
+      "Professional service providers were the most influential information source for green motor oil decisions",
+      "DIY consumers never care about brand familiarity",
+      "National retailers already agreed to promote Eco7 exclusively",
+      "Eco7 required no explanation from installers"
+    ],
+    "answerIndex": 0,
+    "explanation": "The case survey reports professional service providers as the most influential information source, and DIFM buyers often accept installer recommendations.",
+    "reviewHint": "Connect channel choice to who influences the consumer at the moment of purchase."
+  },
+  {
+    "id": "case-eco7-004",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Pricing trade-off",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf p.8",
+    "prompt": "The main downside of pricing Eco7 at the lower $5.25 price is that it:",
+    "options": [
+      "Squeezes margins and may undermine premium positioning",
+      "Makes the product more expensive than Avellin's synthetic oil",
+      "Eliminates all sales in stores with weak messaging",
+      "Prevents installers from selling any conventional oil"
+    ],
+    "answerIndex": 0,
+    "explanation": "The case says $5.25 makes selling easier but squeezes everyone’s margins and may devalue the innovation.",
+    "reviewHint": "Separate unit sales from profit per sale and positioning effects."
+  },
+  {
+    "id": "case-eco7-005",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Premium pricing",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf p.8",
+    "prompt": "At the $6.75 full price, Eco7 is most likely to sell well when:",
+    "options": [
+      "DIFM installers understand and explain both the green benefit and performance benefit",
+      "Installers avoid mentioning the product's environmental benefit",
+      "The product is sold only as a cheap substitute for private label",
+      "All displays and installer messages are removed"
+    ],
+    "answerIndex": 0,
+    "explanation": "Test-market feedback said installers who knew how to pitch Eco7 had no problem selling it at full price.",
+    "reviewHint": "Full-price strategy depends on channel training and message execution."
+  },
+  {
+    "id": "case-eco7-006",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "DIFM margin",
+    "difficulty": "hard",
+    "source": "Eco7- Launching a New Motor Oil.pdf p.10",
+    "prompt": "For a 5-quart oil change, the DIFM outlet gross margin on Eco7 at full price is closest to:",
+    "options": [
+      "$18.56",
+      "$13.13",
+      "$3.24",
+      "$1.90"
+    ],
+    "answerIndex": 0,
+    "explanation": "Eco7 full-price retail revenue is $33.75 per oil change and the DIFM outlet gross margin is 55%, so margin is about $18.56.",
+    "reviewHint": "Use retail revenue per oil change times outlet gross margin percentage."
+  },
+  {
+    "id": "case-eco7-007",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Wholesaler margin",
+    "difficulty": "hard",
+    "source": "Eco7- Launching a New Motor Oil.pdf p.10",
+    "prompt": "For a 5-quart Eco7 oil change at the discounted price, the wholesaler gross margin is closest to:",
+    "options": [
+      "$1.31",
+      "$3.24",
+      "$13.13",
+      "$18.56"
+    ],
+    "answerIndex": 0,
+    "explanation": "At the discounted price, the DIFM outlet cost is $13.125 and the wholesaler margin is 10% of that selling price, or about $1.31.",
+    "reviewHint": "Work backward from DIFM retail revenue and outlet margin to wholesaler selling price."
+  },
+  {
+    "id": "case-eco7-008",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Aventage exclusivity",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf pp.6, 8, 11",
+    "prompt": "The strongest argument for giving Aventage stores Eco7 exclusivity is that exclusivity could:",
+    "options": [
+      "Increase store commitment and improve execution of the premium message",
+      "Guarantee immediate national DIY coverage",
+      "Eliminate the need for installer training",
+      "Make national mass merchandisers promote Avellin over private label"
+    ],
+    "answerIndex": 0,
+    "explanation": "The case suggests Aventage stores value exclusivity and may execute the rollout better because they are already engaged with Avellin.",
+    "reviewHint": "Tie exclusivity to incentives, training, and consistency at the point of sale."
+  },
+  {
+    "id": "case-eco7-009",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Channel conflict",
+    "difficulty": "medium",
+    "source": "Eco7- Launching a New Motor Oil.pdf pp.6, 8",
+    "prompt": "Why did Avellin consider keeping Eco7 out of national mass merchandisers and clubs at launch?",
+    "options": [
+      "To gain DIFM installer support and limit channel conflict with independent customers",
+      "Because DIY consumers were the only target for Eco7",
+      "Because national retailers had no PCMO sales",
+      "Because AvellinAuto stores required wholesaler distribution"
+    ],
+    "answerIndex": 0,
+    "explanation": "Avellin planned to focus on independent DIFM and AvellinAuto, partly to support DIFM installers and avoid conflicts with low-cost national channels.",
+    "reviewHint": "Review how channel decisions change retailer incentives and loyalty."
+  },
+  {
+    "id": "case-eco7-010",
+    "topic": "Eco7 Launch Strategy",
+    "subtopic": "Message execution",
+    "difficulty": "hard",
+    "source": "Eco7- Launching a New Motor Oil.pdf pp.7-8",
+    "prompt": "The test market revealed that Eco7 sales depended heavily on:",
+    "options": [
+      "In-store displays and installer recommendations",
+      "National TV awareness alone",
+      "DIY shoppers reading technical reports online",
+      "Wholesalers avoiding all sales incentives"
+    ],
+    "answerIndex": 0,
+    "explanation": "Most buyers became aware through displays or DIFM installer suggestions, while relatively few reported seeing local advertising.",
+    "reviewHint": "For Eco7, the selling message happens inside the service channel."
+  },
+  {
+    "id": "case-united-001",
+    "topic": "United Breaks Guitars",
+    "subtopic": "Positive response",
+    "difficulty": "easy",
+    "source": "United_Breaks_Guitars_Case_Opinion1.docx p.1",
+    "prompt": "Which action was identified as a positive aspect of United's response?",
+    "options": [
+      "United reached out directly to Carroll after the video went viral",
+      "United ignored the incident completely",
+      "United sued Carroll immediately",
+      "United publicly denied that any service failure occurred"
+    ],
+    "answerIndex": 0,
+    "explanation": "The opinion notes direct outreach as a positive sign that United recognized the situation required attention beyond a routine claim.",
+    "reviewHint": "Distinguish positive response elements from the larger timing failure."
+  },
+  {
+    "id": "case-united-002",
+    "topic": "United Breaks Guitars",
+    "subtopic": "Timing",
+    "difficulty": "easy",
+    "source": "United_Breaks_Guitars_Case_Opinion1.docx p.1",
+    "prompt": "The biggest criticism of United's response timing was that:",
+    "options": [
+      "United engaged only after millions had already watched the video",
+      "United apologized before Carroll complained",
+      "United resolved the complaint within one day",
+      "United announced changes before the incident occurred"
+    ],
+    "answerIndex": 0,
+    "explanation": "The response came after nine months of unresolved complaint attempts and after the video had already gone viral.",
+    "reviewHint": "In service recovery, delay can become part of the failure."
+  },
+  {
+    "id": "case-united-003",
+    "topic": "United Breaks Guitars",
+    "subtopic": "Accountability",
+    "difficulty": "medium",
+    "source": "United_Breaks_Guitars_Case_Opinion1.docx p.1",
+    "prompt": "Why did United's compensation offer look insufficient from a reputation perspective?",
+    "options": [
+      "It appeared to come only after viral pressure rather than from accountability",
+      "It was paired with immediate public operational changes",
+      "It prevented the video from spreading at all",
+      "It was made before any public criticism"
+    ],
+    "answerIndex": 0,
+    "explanation": "The opinion argues that acting only under viral pressure signals that customers matter mainly when complaints become PR problems.",
+    "reviewHint": "Separate private settlement from public trust repair."
+  },
+  {
+    "id": "case-united-004",
+    "topic": "United Breaks Guitars",
+    "subtopic": "Public apology",
+    "difficulty": "medium",
+    "source": "United_Breaks_Guitars_Case_Opinion1.docx p.1",
+    "prompt": "Why was a private outreach to Carroll not enough once the incident became global?",
+    "options": [
+      "A public apology was needed to address broader reputational damage and reassure travelers",
+      "The public had no awareness of the incident",
+      "Public statements always make service failures disappear",
+      "Only legal threats could repair the brand"
+    ],
+    "answerIndex": 0,
+    "explanation": "Once the case became a public conversation, the response also needed a public trust-building component.",
+    "reviewHint": "Match the response arena to the damage arena: public harm often needs public repair."
+  },
+  {
+    "id": "case-united-005",
+    "topic": "United Breaks Guitars",
+    "subtopic": "Better response",
+    "difficulty": "medium",
+    "source": "United_Breaks_Guitars_Case_Opinion1.docx p.1",
+    "prompt": "A stronger United response would have paired an apology with:",
+    "options": [
+      "Specific operational changes such as clearer baggage accountability or complaint timelines",
+      "A demand that Carroll remove the video before any discussion",
+      "No acknowledgement of the damaged guitar",
+      "A promise to handle complaints only when they go viral"
+    ],
+    "answerIndex": 0,
+    "explanation": "The opinion recommends a public commitment to concrete improvements so customers have evidence of genuine change.",
+    "reviewHint": "Good service recovery includes apology, accountability, and evidence of system improvement."
+  }
+]

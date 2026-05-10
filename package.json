@@ -1,0 +1,12 @@
+{
+  "name": "smi-quiz-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Course-material driven multiple-choice practice app for Strategic Market Intelligence.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

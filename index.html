@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SMI Quiz Lab</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">SMI</div>
+          <div>
+            <h1>Quiz Lab</h1>
+            <p>Strategic Market Intelligence</p>
+          </div>
+        </div>
+        <p class="legal-note">Unofficial student-made review tool. Not affiliated with or endorsed by Johns Hopkins University or the instructor.</p>
+
+        <section class="panel controls-panel" aria-label="练习设置">
+          <div class="mode-switch" aria-label="练习模式">
+            <button id="modeMockBtn" class="mode-card active" type="button" aria-pressed="true">
+              <span class="mode-icon">10</span>
+              <strong>10 题模拟</strong>
+              <small>全章节混合，按考试感觉练一组</small>
+            </button>
+            <button id="modeChapterBtn" class="mode-card" type="button" aria-pressed="false">
+              <span class="mode-icon">§</span>
+              <strong>分章节练习</strong>
+              <small>挑一个章节，集中补短板</small>
+            </button>
+          </div>
+
+          <div class="field-block" id="topicField">
+            <label for="topicSelect">章节</label>
+            <select id="topicSelect"></select>
+            <p class="field-note" id="topicHint">模拟题会自动覆盖所有章节。</p>
+          </div>
+
+          <label for="difficultySelect">难度</label>
+          <select id="difficultySelect">
+            <option value="mixed">混合</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <div class="button-row">
+            <button id="newSetBtn" class="primary-btn" type="button">AI 开始模拟</button>
+            <button id="apiSetBtn" class="ghost-btn" type="button">本地备用题</button>
+          </div>
+          <button id="mistakeSetBtn" class="line-btn" type="button">错题重练</button>
+        </section>
+
+        <section class="panel stat-panel" aria-label="练习统计">
+          <div class="stat-pair">
+            <span>累计套数</span>
+            <strong id="attemptCount">0</strong>
+          </div>
+          <div class="stat-pair">
+            <span>平均正确率</span>
+            <strong id="avgAccuracy">--</strong>
+          </div>
+          <div class="api-status" id="apiStatus">正在检查 AI 出题</div>
+          <button id="resetStatsBtn" class="line-btn compact-btn" type="button">重置记录</button>
+        </section>
+
+        <section class="panel message-panel" aria-label="同学留言">
+          <div class="message-panel-head">
+            <div>
+              <span class="eyebrow small-eyebrow">留言</span>
+              <h2>给同学打气</h2>
+            </div>
+            <a class="message-count" href="/public/messages.html" aria-label="查看留言墙">
+              <strong id="messageCount">0</strong>
+              <span>条</span>
+            </a>
+          </div>
+
+          <form class="mini-message-form" id="messageMiniForm">
+            <input id="messageName" name="author" maxlength="24" autocomplete="off" placeholder="昵称，不填也可以" />
+            <textarea id="messageText" name="text" maxlength="220" rows="4" placeholder="给大家留一句鼓励的话"></textarea>
+            <div class="message-form-row">
+              <select id="messageMood" name="mood" aria-label="留言颜色">
+                <option value="sunny">暖黄色</option>
+                <option value="focus">清醒蓝</option>
+                <option value="brave">冲刺红</option>
+                <option value="calm">淡定绿</option>
+                <option value="spark">灵感粉</option>
+              </select>
+              <button id="messageSubmitBtn" class="accent-btn" type="submit">送上鼓励</button>
+            </div>
+          </form>
+
+          <a class="wall-link" href="/public/messages.html">打开留言墙</a>
+        </section>
+
+        <section class="panel map-panel" aria-label="知识地图">
+          <img src="/public/assets/topic-map.svg" alt="课程知识地图" />
+        </section>
+      </aside>
+
+      <main class="main-area">
+        <section class="top-strip" aria-label="章节掌握度">
+          <div>
+              <span class="eyebrow">进度</span>
+              <h2>章节掌握度</h2>
+          </div>
+          <div class="mastery-grid" id="masteryGrid"></div>
+        </section>
+
+        <section class="quiz-panel" aria-label="选择题练习">
+          <div class="quiz-header">
+            <div>
+              <span class="eyebrow" id="questionMeta">准备好了</span>
+              <h2 id="questionTitle">选择模式后开始练习</h2>
+            </div>
+            <div class="score-chip" id="scoreChip">0 / 10</div>
+          </div>
+
+          <div class="progress-dots" id="progressDots"></div>
+
+          <div class="question-body">
+            <p id="questionPrompt">题目已经按课程资料整理好。可以先做一组 10 题模拟，也可以按章节慢慢补。</p>
+            <div class="options" id="optionsList"></div>
+          </div>
+
+          <div class="quiz-actions">
+            <button id="prevBtn" class="ghost-btn" type="button">上一题</button>
+            <button id="variantBtn" class="line-btn variant-btn" type="button">换一道同类题</button>
+            <button id="nextBtn" class="primary-btn" type="button">下一题</button>
+            <button id="submitBtn" class="accent-btn" type="button">交卷</button>
+          </div>
+        </section>
+
+        <section class="results-panel hidden" id="resultsPanel" aria-label="错题讲解">
+          <div class="results-head">
+            <div>
+              <span class="eyebrow">复盘</span>
+              <h2 id="resultTitle">本套复盘</h2>
+            </div>
+            <button id="closeResultsBtn" class="line-btn" type="button">收起</button>
+          </div>
+          <p id="reviewSummary"></p>
+          <div class="review-plan" id="reviewPlan"></div>
+          <section class="review-message-invite" aria-label="给同学留言">
+            <div class="review-message-copy">
+              <span class="eyebrow small-eyebrow">顺手打气</span>
+              <h3>给下一位刷题的人留句话</h3>
+              <p>复盘看完后，可以写一句鼓励。会出现在留言墙，也会飘到课程首页的背景里。</p>
+            </div>
+            <form class="review-message-form" id="reviewMessageForm">
+              <input id="reviewMessageName" name="author" maxlength="24" autocomplete="off" placeholder="昵称，不填也可以" />
+              <textarea id="reviewMessageText" name="text" maxlength="180" rows="3" placeholder="写一句给同学的话"></textarea>
+              <div class="review-message-row">
+                <select id="reviewMessageMood" name="mood" aria-label="留言颜色">
+                  <option value="sunny">暖黄色</option>
+                  <option value="focus">清醒蓝</option>
+                  <option value="brave">冲刺红</option>
+                  <option value="calm">淡定绿</option>
+                  <option value="spark">灵感粉</option>
+                </select>
+                <button id="reviewMessageSubmitBtn" class="primary-btn" type="submit">贴到留言墙</button>
+              </div>
+              <p class="review-message-status" id="reviewMessageStatus" aria-live="polite"></p>
+            </form>
+          </section>
+          <div class="wrong-list" id="wrongList"></div>
+        </section>
+
+        <section class="source-panel" aria-label="课程来源">
+          <div>
+            <span class="eyebrow">资料</span>
+            <h2>课程资料索引</h2>
+          </div>
+          <div class="source-grid" id="sourceGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/public/glossary.js"></script>
+    <script src="/public/app.js"></script>
+  </body>
+</html>

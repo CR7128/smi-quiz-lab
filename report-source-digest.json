@@ -1,0 +1,98 @@
+[
+  {
+    "topic": "Cournot Competition",
+    "source": "Report_Cournot Competition_BU.450.750.J1_group 3.pdf",
+    "pages": "1-5",
+    "keyIdeas": [
+      "Cournot competition is quantity competition: each firm chooses output while taking competitors' quantities as given.",
+      "Market price is determined by total industry output.",
+      "Compared with Bertrand competition, Cournot generally produces lower aggregate output, higher prices, and higher profits.",
+      "Collusion in a Cournot setting makes firms act more like a monopolist, reducing output and increasing prices further.",
+      "Collusion is fragile because each firm has an incentive to secretly expand output while others restrict production."
+    ]
+  },
+  {
+    "topic": "Stackelberg Competition",
+    "source": "Report_Stackelberg Competition_BU.450.750.J1_group 2.pdf",
+    "pages": "1-4",
+    "keyIdeas": [
+      "Stackelberg competition is sequential: a leader commits first and a follower observes and responds.",
+      "The model differs from Bertrand competition because decisions are not simultaneous price cuts.",
+      "The leader's commitment can shape the market and give the leader a first-mover advantage.",
+      "Compared with Bertrand competition, Stackelberg outcomes tend to have lower output and higher prices.",
+      "The follower still earns positive profit, but responds within boundaries created by the leader."
+    ]
+  },
+  {
+    "topic": "Information Cascades",
+    "source": "Report_Information Cascades_BU.450.750.J1_group 1.pdf",
+    "pages": "1-4",
+    "keyIdeas": [
+      "Information cascades occur when people imitate observed actions instead of relying on their own private information.",
+      "Cascades require sequential decisions, private information, and inference from others' visible actions.",
+      "Positive cascades can create social proof, trend formation, and brand momentum.",
+      "Negative cascades can rapidly damage reputation when early criticism becomes a social signal.",
+      "Cascades are fragile because new credible information can reverse them."
+    ]
+  },
+  {
+    "topic": "Network Effects",
+    "source": "Report_Network Effects_BU.450.750.J1_group 4.pdf",
+    "pages": "1-4",
+    "keyIdeas": [
+      "A network effect exists when a product becomes more valuable as more users adopt the same or compatible system.",
+      "Direct network effects come from users directly increasing value for other users; indirect network effects come through complements.",
+      "Positive feedback can lead to tipping and lock-in.",
+      "Network-market firms compete to build installed base, expectations, and ecosystem strength.",
+      "Penetration pricing, promotions, partnerships, and easy access can help reach critical mass."
+    ]
+  },
+  {
+    "topic": "Durable Goods Pricing",
+    "source": "Report_Durable Goods_BU.450.750.J1_group 5.pdf",
+    "pages": "1-4",
+    "keyIdeas": [
+      "Durable goods provide value over time, so current sales reduce future replacement demand.",
+      "Inter-temporal price discrimination charges higher initial prices to high-willingness-to-pay consumers and lowers prices later.",
+      "The Coase conjecture says a durable-goods monopolist that cannot commit to future high prices may lose market power because buyers wait.",
+      "Firms can respond through limited availability, leasing, planned obsolescence, secondary-market control, and ecosystem lock-in.",
+      "Apple and Disney illustrate lifecycle pricing, product replacement, trade-ins, and limited availability strategies."
+    ]
+  },
+  {
+    "topic": "Vertical Differentiation",
+    "source": "Report_Vertical Differentiation_BU.450.750.J1_group 6.pdf",
+    "pages": "1-3",
+    "keyIdeas": [
+      "Vertical differentiation is based on quality: most consumers agree which product is better but differ in willingness to pay for it.",
+      "Horizontal differentiation is based on personal preference rather than a shared quality ranking.",
+      "A lower-quality position can be profitable by reducing direct price competition with premium products.",
+      "Second-degree price discrimination is a single-firm menu strategy, while vertical differentiation describes competing firms at different quality levels.",
+      "Cars, airlines, and hotel brand portfolios show how firms use quality ladders to serve different willingness-to-pay groups."
+    ]
+  },
+  {
+    "topic": "Demarketing",
+    "source": "Report_Demarketing_BU.450.750.J1_group 7.pdf",
+    "pages": "1-4",
+    "keyIdeas": [
+      "Demarketing deliberately reduces, suppresses, or redirects demand when demand is excessive or inappropriate.",
+      "It differs from reverse marketing: demarketing is firm-led demand control, while reverse marketing is consumer-led search for supply.",
+      "General demarketing reduces demand broadly, often through price increases, access limits, lower promotion, or quantity limits.",
+      "Selective demarketing filters less profitable customers and focuses resources on high-value segments.",
+      "Ostensible demarketing appears to restrict access but can increase desirability by creating scarcity and authenticity."
+    ]
+  },
+  {
+    "topic": "Exclusive Territories",
+    "source": "Report_Exclusive Territories_BU.450.750.J1_group 8.pdf",
+    "pages": "1-3",
+    "keyIdeas": [
+      "Exclusive territories give one distributor, retailer, or franchisee the right to sell in a specific geographic or customer area.",
+      "They reduce intrabrand competition and can encourage local advertising, service, and relationship investment.",
+      "They are a type of vertical restraint and require monitoring to prevent cross-area selling.",
+      "Exclusive territories control where retailers sell, while exclusive dealing controls what brands retailers sell.",
+      "The strategy trades off some competition for stronger channel coordination and control."
+    ]
+  }
+]

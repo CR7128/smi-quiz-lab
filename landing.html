@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Strategic Market Intelligence</title>
+    <link rel="stylesheet" href="/public/landing.css" />
+  </head>
+  <body>
+    <main class="landing">
+      <section class="hero" aria-label="Strategic Market Intelligence landing page">
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <nav class="corner-nav" aria-label="快速入口">
+          <a class="corner-link" href="/">答题</a>
+          <button class="corner-link" id="searchToggleBtn" type="button" aria-expanded="false" aria-controls="conceptSearchPanel">搜索</button>
+          <a class="corner-link" href="/public/messages.html">留言</a>
+        </nav>
+        <p class="legal-note landing-legal">Unofficial student-made review tool. Not affiliated with or endorsed by Johns Hopkins University or the instructor.</p>
+        <section class="concept-search-panel" id="conceptSearchPanel" aria-label="概念搜索" hidden>
+          <div class="search-panel-head">
+            <div>
+              <span>题库搜索</span>
+              <h2>查一下不熟的概念</h2>
+            </div>
+            <button id="searchCloseBtn" type="button">收起</button>
+          </div>
+          <form class="concept-search-form" id="conceptSearchForm">
+            <input id="conceptSearchInput" name="query" maxlength="120" autocomplete="off" placeholder="例如 Nash equilibrium、price elasticity、moral hazard" />
+            <button id="conceptSearchSubmitBtn" type="submit">查一下</button>
+          </form>
+          <div class="search-guides" aria-label="搜索建议">
+            <button type="button" data-query="Nash equilibrium">Nash equilibrium</button>
+            <button type="button" data-query="price elasticity">price elasticity</button>
+            <button type="button" data-query="moral hazard">moral hazard</button>
+            <button type="button" data-query="network effects">network effects</button>
+          </div>
+          <div class="concept-search-result" id="conceptSearchResult">
+            输入课件里的英文概念；这里只回答本课程相关内容。
+          </div>
+        </section>
+        <div class="landing-message-stream" aria-hidden="true">
+          <div class="landing-message-track" id="landingMessageTrack"></div>
+        </div>
+        <div class="ticker ticker-top" aria-hidden="true">
+          <span>Bertrand competition 先别慌</span>
+          <span>Elasticity 正在上线</span>
+          <span>Collusion 不一定真的稳</span>
+          <span>期末倒计时</span>
+        </div>
+
+        <div class="hero-content">
+          <p class="kicker">期末复习工作台</p>
+          <h1>Strategic Market Intelligence</h1>
+          <p class="tagline">
+            把模型、案例和题感放在同一个页面里，先看清局面，再决定怎么答。
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-link" href="/">进入答题界面</a>
+            <button class="chaos-button" id="chaosButton" type="button">复习热身</button>
+          </div>
+        </div>
+
+        <div class="hero-brief" aria-label="复习摘要">
+          <div class="brief-head">
+            <span>Review map</span>
+            <strong>Exam-ready loop</strong>
+          </div>
+          <div class="brief-card brief-card-main">
+            <span>01</span>
+            <p>Practice with variants</p>
+          </div>
+          <div class="brief-card">
+            <span>02</span>
+            <p>Search course concepts</p>
+          </div>
+          <div class="brief-card">
+            <span>03</span>
+            <p>Review missed questions</p>
+          </div>
+        </div>
+
+        <div class="course-memes" aria-label="课程梗">
+          <button type="button" data-line="Price elasticity 正在盯着你的钱包。">Pricing</button>
+          <button type="button" data-line="如果题目像 game tree，那就 backward induction。">Game Theory</button>
+          <button type="button" data-line="Signaling 再弱，也比纯靠玄学强。">Signaling</button>
+          <button type="button" data-line="Channel strategy 管货架，你负责点提交。">Channels</button>
+        </div>
+
+        <p class="floating-line" id="floatingLine">Demand curve 说：再刷一组。</p>
+
+        <div class="ticker ticker-bottom" aria-hidden="true">
+          <span>Network effects 启动</span>
+          <span>Eco7 开绿灯</span>
+          <span>Second-price auction 别报过头</span>
+          <span>Aventage 独家气质</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="/public/glossary.js"></script>
+    <script src="/public/landing.js"></script>
+  </body>
+</html>
