@@ -1,5 +1,4 @@
 
-
 const http = require("http");
 const crypto = require("crypto");
 const fs = require("fs");
@@ -80,9 +79,17 @@ function resolveReadablePath(relativePath) {
   return direct;
 }
 
+function isDirectory(filePath) {
+  try {
+    return fs.statSync(filePath).isDirectory();
+  } catch {
+    return false;
+  }
+}
+
 function resolveWritableDataPath(filename) {
   const dataDir = path.join(ROOT, "data");
-  return fs.existsSync(dataDir) ? path.join(dataDir, filename) : path.join(ROOT, filename);
+  return isDirectory(dataDir) ? path.join(dataDir, filename) : path.join(ROOT, filename);
 }
 
 async function readJson(relativePath) {
@@ -95,7 +102,7 @@ async function readMessages() {
     const messages = JSON.parse(await fsp.readFile(MESSAGE_FILE, "utf8"));
     return Array.isArray(messages) ? messages : [];
   } catch (error) {
-    if (error.code === "ENOENT") return [];
+    if (error.code === "ENOENT" || error.code === "ENOTDIR") return [];
     throw error;
   }
 }
@@ -112,7 +119,7 @@ async function readCombinedJson(relativePaths) {
       try {
         return JSON.parse(await fsp.readFile(filePath, "utf8"));
       } catch (error) {
-        if (error.code === "ENOENT") return [];
+        if (error.code === "ENOENT" || error.code === "ENOTDIR") return [];
         throw error;
       }
     })
@@ -137,7 +144,7 @@ async function readExtractedMaterials() {
   try {
     return await readJson("data/extracted-materials.json");
   } catch (error) {
-    if (error.code === "ENOENT") return [];
+    if (error.code === "ENOENT" || error.code === "ENOTDIR") return [];
     throw error;
   }
 }
