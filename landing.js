@@ -128,7 +128,7 @@ function renderSearchResult(payload) {
   const related = Array.isArray(payload.relatedQuestions) ? payload.relatedQuestions : [];
   searchResult.className = "concept-search-result has-result";
   searchResult.innerHTML = `
-    <div class="result-mode">${payload.mode === "local" ? "本地题库" : "AI + 题库"} · ${escapeHtml(payload.query || searchInput.value)}</div>
+    <div class="result-mode">${payload.mode === "local" ? "课程题库" : "课程资料辅助"} · ${escapeHtml(payload.query || searchInput.value)}</div>
     <p>${escapeHtml(payload.answer || "题库里暂时没有清晰解释。")}</p>
     ${keyPoints.length ? `<ul>${keyPoints.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}
     ${payload.example ? `<div class="result-example">${escapeHtml(payload.example)}</div>` : ""}
@@ -177,3 +177,4 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
