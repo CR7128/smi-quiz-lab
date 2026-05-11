@@ -183,21 +183,21 @@ function renderPracticeControls() {
   els.startFromQuizBtn.textContent = startLabel;
   els.generationNote.textContent = waitText;
   els.startWaitNote.textContent = waitText;
-  els.apiSetBtn.textContent = "本地备用题";
+  els.apiSetBtn.textContent = "课程题库";
 
   if (isChapter) {
     const count = countQuestions(els.topicSelect.value, els.difficultySelect.value);
     const suffix = els.difficultySelect.value === "mixed" ? "" : "；如果这一档题量不够，会自动补同章其他难度";
     els.topicHint.textContent = state.apiReady
-      ? `优先用 AI 出同章新题；本地题库有 ${count} 道可作备用${suffix}。`
-      : `这一章现在有 ${count} 道本地题${suffix}。`;
+      ? `会围绕本章生成练习题；课程题库也会一起准备好${suffix}。`
+      : `这一章现在有 ${count} 道课程题库练习${suffix}。`;
     return;
   }
 
   const count = countQuestions("All", els.difficultySelect.value);
   els.topicHint.textContent = state.apiReady
-    ? `模拟会优先调用 AI 生成 10 道题；本地 ${count} 道题作为备用。`
-    : `模拟会从全课程 ${count} 道题里抽 10 道。`;
+    ? "模拟会生成一组综合题；课程题库也会一起准备好。"
+    : `模拟会从课程题库 ${count} 道题里抽 10 道。`;
 }
 
 function startButtonLabel() {
@@ -205,8 +205,8 @@ function startButtonLabel() {
 }
 
 function generationWaitText() {
-  if (!state.apiReady) return "本地备用题通常 1 秒内开始；接上 AI 后会显示预计等待时间。";
-  return "AI 出题通常需要 10-30 秒；Render 免费版冷启动时可能接近 1 分钟。";
+  if (!state.apiReady) return "课程题库通常会很快开始。";
+  return "智能生成通常需要 10-30 秒；网络较慢时请稍等。";
 }
 
 function countQuestions(topic, difficulty) {
@@ -220,12 +220,11 @@ function countQuestions(topic, difficulty) {
 function renderApiStatus(status) {
   const count = status?.questionCount || state.bank.length;
   if (state.apiReady) {
-    const provider = status.provider === "deepseek" ? "DeepSeek" : "OpenAI";
-    els.apiStatus.textContent = `${provider} 优先调用 · ${status.model} · 本地 ${count} 题备用`;
+    els.apiStatus.textContent = "智能出题已可用，课程题库也会一起准备好。";
     els.apiStatus.classList.add("ready");
     return;
   }
-  els.apiStatus.textContent = `当前用本地题库 · ${count} 题 · 可接入 AI 出题`;
+  els.apiStatus.textContent = `当前使用课程题库练习，共 ${count} 道题。`;
   els.apiStatus.classList.remove("ready");
 }
 
@@ -234,7 +233,7 @@ function startPreferredSet() {
     startApiSet();
     return;
   }
-  showToast("还没接上 API，先用本地题库开始。");
+  showToast("智能出题暂时不可用，先用课程题库开始。");
   startLocalSet();
 }
 
@@ -254,11 +253,11 @@ function startLocalSet() {
     showToast(`这一章目前有 ${questions.length} 道题，先把这一组练熟。`);
   }
 
-  startSet(questions, practiceLabel("本地题库"));
+  startSet(questions, practiceLabel("课程题库"));
 }
 
 async function startApiSet() {
-  setLoading(true, "AI 出题中");
+  setLoading(true, "正在生成题目");
   const stats = getStats();
   const weakTopics = getWeakTopics(stats);
   try {
@@ -272,11 +271,11 @@ async function startApiSet() {
         weakTopics
       })
     });
-    const modeLabel = practiceLabel(payload.mode === "local" ? "本地题库" : `${payload.mode === "deepseek" ? "DeepSeek" : "AI"} 生成`);
+    const modeLabel = practiceLabel(payload.mode === "local" ? "课程题库" : "智能生成");
     startSet(payload.questions, modeLabel);
-    if (payload.warning) showToast("AI 刚才没出成功，已先切到本地题。");
+    if (payload.warning) showToast("刚才没有生成成功，已先切到课程题库。");
   } catch {
-    showToast("AI 请求失败，先用本地题继续练。");
+    showToast("智能生成暂时不可用，先用课程题库继续练。");
     startLocalSet();
   } finally {
     setLoading(false);
@@ -291,7 +290,7 @@ async function startMistakeSet() {
   }
 
   if (state.apiReady) {
-      setLoading(true, "正在生成错题本题目");
+    setLoading(true, "正在生成错题本题目");
     try {
       const weakTopics = [...new Set(weakConcepts.map((item) => item.topic).filter(Boolean))].slice(0, 4);
       const payload = await fetchJson("/api/generate-set", {
@@ -312,12 +311,12 @@ async function startMistakeSet() {
       if (payload.mode === "local" && payload.warning) {
         throw new Error(payload.warning);
       }
-      const modeLabel = practiceLabel(payload.mode === "local" ? "错题本练习" : `${payload.mode === "deepseek" ? "DeepSeek" : "AI"} 错题本`);
+      const modeLabel = practiceLabel(payload.mode === "local" ? "错题本练习" : "智能错题本练习");
       startSet(payload.questions, modeLabel);
-      if (payload.warning) showToast("AI 刚才没有生成成功，已先切到本地错题本题目。");
+      if (payload.warning) showToast("刚才没有生成成功，已先切到错题本练习。");
       return;
     } catch {
-      showToast("AI 请求失败，先用本地错题本题目继续练。");
+      showToast("智能生成暂时不可用，先用错题本练习继续。");
     } finally {
       setLoading(false);
     }
@@ -459,7 +458,6 @@ function renderQuestion(options = {}) {
         <button class="${classes.join(" ")}" style="--delay: ${index}" data-index="${index}" type="button" aria-pressed="${selected === index ? "true" : "false"}">
           <span class="option-key">${optionLabels[index]}</span>
           <span class="option-text">${escapeHtml(option)}</span>
-          <span class="option-mark" aria-hidden="true"></span>
         </button>
       `;
     })
@@ -592,7 +590,7 @@ async function generateVariant() {
     state.currentSet[state.currentIndex] = variant;
     state.selections[state.currentIndex] = null;
     renderQuestion({ force: true });
-    showToast(payload.mode === "local" ? "AI 暂时没接上，已换成本地同类题。" : "已换成同一个知识点的新题。");
+    showToast(payload.mode === "local" ? "暂时无法生成新题，已换成课程题库同类题。" : "已换成同一个知识点的新题。");
   } catch (error) {
     showToast(error.message || "这次换题没成功，稍后再试。");
   } finally {
@@ -938,9 +936,12 @@ function renderWrongBook(stats) {
       const width = Math.max(12, Math.round((item.count / maxCount) * 100));
       return `
         <div class="wrongbook-item">
-          <div>
-            <strong>${escapeHtml(item.concept)}</strong>
-            <span>${escapeHtml(item.topic)} · ${item.count} 次</span>
+          <div class="wrongbook-item-head">
+            <div>
+              <strong>${escapeHtml(item.concept)}</strong>
+              <span>${escapeHtml(item.topic)}</span>
+            </div>
+            <em>${item.count} 次</em>
           </div>
           <div class="wrongbook-bar" style="--width:${width}%"><span></span></div>
         </div>

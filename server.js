@@ -434,7 +434,7 @@ function buildLocalConceptAnswer(query, bank, digest) {
       ],
       example: "可以输入：price discrimination、backward induction、trigger strategy。",
       relatedQuestions: [],
-      sourceNote: "本地题库未找到高相关来源。",
+      sourceNote: "课程题库（question bank）暂时没有高相关来源。",
       suggestions: ["换一个更短、更像课件标题的关键词。", "优先使用课件里的英文术语。"]
     };
   }
@@ -462,7 +462,7 @@ function buildLocalConceptAnswer(query, bank, digest) {
       ? `相关题型：${topQuestion.prompt} 正确判断会落在「${topQuestion.options?.[topQuestion.answerIndex] || "对应机制"}」。`
       : `相关章节：${relatedDigest.topic}。`,
     relatedQuestions,
-    sourceNote: sourceNote || "本地题库",
+    sourceNote: sourceNote || "课程题库（question bank）",
     suggestions: [
       "把这个概念和相近概念放在一起比较，考试里最容易卡在这些边界上。",
       "搜完后做一题同主题变体，确认自己不是只记住了定义。"
@@ -717,8 +717,8 @@ function validateGeneratedQuestions(payload) {
     .slice(0, 10)
     .map((q, index) => ({
       id: `api-${Date.now()}-${index + 1}`,
-      topic: q.topic || "API Generated",
-      subtopic: q.subtopic || "Generated",
+      topic: q.topic || "Course Practice",
+      subtopic: q.subtopic || "Course Variant",
       difficulty: q.difficulty || "medium",
       source: q.source || "Generated from course digest",
       prompt: q.prompt,
@@ -747,8 +747,8 @@ function validateVariantQuestion(payload, baseQuestion = {}) {
   return {
     id: `api-variant-${Date.now()}`,
     variantOf: baseQuestion.id,
-    topic: raw.topic || baseQuestion.topic || "API Generated",
-    subtopic: raw.subtopic || baseQuestion.subtopic || "Generated Variant",
+    topic: raw.topic || baseQuestion.topic || "Course Practice",
+    subtopic: raw.subtopic || baseQuestion.subtopic || "Course Variant",
     difficulty: raw.difficulty || baseQuestion.difficulty || "medium",
     source: raw.source || baseQuestion.source || "Generated from course materials",
     prompt: raw.prompt,

@@ -48,9 +48,9 @@
 
           <div class="button-row">
             <button id="newSetBtn" class="primary-btn start-generate-btn" type="button">开始生成题目</button>
-            <button id="apiSetBtn" class="ghost-btn" type="button">本地备用题</button>
+            <button id="apiSetBtn" class="ghost-btn" type="button">课程题库</button>
           </div>
-          <p class="generation-note" id="generationNote">AI 出题通常需要 10-30 秒；Render 免费版冷启动时可能接近 1 分钟。</p>
+          <p class="generation-note" id="generationNote">智能生成通常需要 10-30 秒；网络较慢时请稍等。</p>
           <button id="mistakeSetBtn" class="line-btn" type="button">错题本练习</button>
         </section>
 
@@ -63,22 +63,22 @@
             <span>平均正确率</span>
             <strong id="avgAccuracy">--</strong>
           </div>
-          <div class="api-status" id="apiStatus">正在检查 AI 出题</div>
+          <div class="api-status" id="apiStatus">正在检查出题服务</div>
           <button id="resetStatsBtn" class="line-btn compact-btn" type="button">重置记录</button>
         </section>
 
         <section class="panel wrongbook-panel" aria-label="错题本">
           <div class="wrongbook-head">
             <div>
-              <span class="eyebrow small-eyebrow">错题本</span>
-              <h2>薄弱知识点</h2>
+              <span class="eyebrow small-eyebrow" data-no-gloss>错题本</span>
+              <h2 data-no-gloss>薄弱知识点 <small>(weak concept)</small></h2>
             </div>
             <div class="wrongbook-count">
               <strong id="wrongbookCount">0</strong>
-              <span>个</span>
+              <span data-no-gloss>处</span>
             </div>
           </div>
-          <p class="wrongbook-note">这里只记录知识点，不保存具体题目。适合考前看自己反复掉分的地方。</p>
+          <p class="wrongbook-note">这里只记录知识点（knowledge point），不保存具体题目。适合考前快速看自己反复失分的地方。</p>
           <div class="wrongbook-chart" id="wrongbookChart"></div>
         </section>
 
@@ -142,9 +142,9 @@
             <div class="start-card" id="startCard">
               <span class="eyebrow small-eyebrow">开始前</span>
               <h3>选好模式后，再生成这一组题</h3>
-              <p>不会一打开页面就调用 AI。点击下方按钮后，系统会按当前模式生成题目。</p>
+              <p>不会一打开页面就自动出题。点击下方按钮后，系统会按当前模式生成题目。</p>
               <button id="startFromQuizBtn" class="primary-btn start-generate-btn" type="button">开始生成题目</button>
-              <small id="startWaitNote">AI 出题通常需要 10-30 秒；Render 免费版冷启动时可能接近 1 分钟。</small>
+              <small id="startWaitNote">智能生成通常需要 10-30 秒；网络较慢时请稍等。</small>
             </div>
             <div class="options" id="optionsList"></div>
           </div>

@@ -459,39 +459,63 @@ select:focus {
 
 .wrongbook-panel {
   display: grid;
-  gap: 12px;
+  gap: 13px;
+  padding: 17px;
   background:
-    linear-gradient(180deg, rgba(255, 253, 250, 0.96), rgba(247, 237, 220, 0.82)),
+    linear-gradient(180deg, rgba(255, 253, 250, 0.98), rgba(250, 247, 240, 0.94)),
     var(--surface);
+  border-color: rgba(42, 50, 72, 0.32);
+  box-shadow: 0 8px 22px rgba(36, 48, 73, 0.08);
 }
 
 .wrongbook-head {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
+}
+
+.wrongbook-panel .small-eyebrow {
+  border: 0;
+  color: #a46a5a;
+  background: rgba(201, 130, 107, 0.12);
+  padding: 4px 9px;
 }
 
 .wrongbook-head h2 {
   margin: 7px 0 0;
   font-size: 18px;
-  line-height: 1.12;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.wrongbook-head h2 small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .wrongbook-count {
-  display: grid;
-  place-items: center;
-  min-width: 56px;
-  min-height: 56px;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  min-width: 52px;
+  min-height: 34px;
   color: var(--ink);
-  background: var(--soft-amber);
-  border: 2px solid var(--line);
-  border-radius: 18px;
-  box-shadow: inset 0 -4px 0 rgba(36, 48, 73, 0.10);
+  background: rgba(246, 235, 203, 0.72);
+  border: 1px solid rgba(45, 53, 75, 0.20);
+  border-radius: 999px;
+  box-shadow: none;
+  padding: 5px 10px;
 }
 
 .wrongbook-count strong {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -504,7 +528,7 @@ select:focus {
 
 .wrongbook-note {
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.48;
 }
 
 .wrongbook-chart,
@@ -517,23 +541,35 @@ select:focus {
 .concept-row {
   display: grid;
   gap: 7px;
-  padding: 11px;
+  padding: 11px 12px;
   color: var(--ink);
-  background: rgba(255, 253, 250, 0.74);
-  border: 2px solid rgba(42, 50, 72, 0.54);
-  border-radius: 16px;
-  box-shadow: 0 3px 0 rgba(36, 48, 73, 0.08);
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(42, 50, 72, 0.16);
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(36, 48, 73, 0.05);
 }
 
-.wrongbook-item > div:first-child,
+.wrongbook-item {
+  gap: 9px;
+}
+
+.wrongbook-item-head,
 .concept-row-label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wrongbook-item-head > div {
   display: grid;
   gap: 2px;
+  min-width: 0;
 }
 
 .wrongbook-item strong,
 .concept-row-label strong {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -545,13 +581,26 @@ select:focus {
   line-height: 1.25;
 }
 
+.wrongbook-item em {
+  flex: 0 0 auto;
+  color: #9d5f4f;
+  background: rgba(201, 130, 107, 0.14);
+  border: 1px solid rgba(201, 130, 107, 0.24);
+  border-radius: 999px;
+  padding: 3px 7px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
 .wrongbook-bar,
 .concept-track {
   position: relative;
-  height: 12px;
+  height: 7px;
   overflow: hidden;
-  background: rgba(111, 140, 174, 0.15);
-  border: 2px solid rgba(42, 50, 72, 0.42);
+  background: rgba(111, 140, 174, 0.13);
+  border: 0;
   border-radius: 999px;
 }
 
@@ -565,7 +614,7 @@ select:focus {
 }
 
 .wrongbook-bar span {
-  background: linear-gradient(90deg, var(--coral), var(--amber));
+  background: linear-gradient(90deg, #c9826b, #d9b96d);
 }
 
 .wrongbook-empty,
@@ -932,44 +981,33 @@ select:focus {
 .option-btn {
   position: relative;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) 28px;
+  grid-template-columns: 34px minmax(0, 1fr);
   gap: 12px;
   width: 100%;
-  min-height: 64px;
+  min-height: 60px;
   align-items: center;
   text-align: left;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.92);
-  border: 2px solid var(--line);
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.90);
+  border: 2px solid rgba(45, 53, 75, 0.42);
+  border-radius: 16px;
   padding: 12px 14px;
   overflow: hidden;
-  box-shadow: 0 4px 0 rgba(36, 48, 73, 0.10);
-  transform: translateY(0) scale(1);
-  will-change: transform;
+  box-shadow: 0 1px 0 rgba(36, 48, 73, 0.05);
   transition:
     background 170ms ease,
     border-color 170ms ease,
-    box-shadow 170ms ease,
-    transform 140ms ease;
-}
-
-.question-body.enter-next .option-btn,
-.question-body.enter-prev .option-btn,
-.question-body.enter-pop .option-btn {
-  animation: optionRise 220ms cubic-bezier(.2,.8,.2,1) both;
-  animation-delay: calc(var(--delay, 0) * 28ms);
+    box-shadow 170ms ease;
 }
 
 .option-btn:hover {
-  border-color: var(--blue);
+  border-color: rgba(125, 143, 186, 0.72);
   background: #f7f9fc;
-  box-shadow: var(--lift-shadow);
-  transform: translateY(-2px);
+  box-shadow: 0 2px 0 rgba(36, 48, 73, 0.07);
 }
 
 .option-btn:active {
-  transform: translateY(1px) scale(0.992);
+  background: #eef3f6;
 }
 
 .option-btn:focus-visible {
@@ -984,13 +1022,13 @@ select:focus {
   height: 32px;
   color: var(--ink);
   background: #f8edd4;
-  border: 2px solid var(--line);
+  border: 2px solid rgba(45, 53, 75, 0.42);
   border-radius: 999px;
   font-weight: 950;
   transition:
     color 170ms ease,
     background 170ms ease,
-    transform 170ms ease;
+    border-color 170ms ease;
 }
 
 .option-text {
@@ -999,133 +1037,40 @@ select:focus {
   font-weight: 780;
 }
 
-.option-mark {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  color: white;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 900;
-  opacity: 0;
-  transform: scale(0.72);
-  transition:
-    opacity 170ms ease,
-    transform 170ms ease,
-    background 170ms ease,
-    border-color 170ms ease;
-}
-
 .option-btn.selected {
-  border-color: var(--teal);
-  background: #e3f1ec;
-  box-shadow: 0 6px 0 rgba(95, 159, 150, 0.20), 0 16px 30px rgba(95, 159, 150, 0.12);
-  animation: optionSelect 220ms ease-out;
+  border-color: #d3ad5c;
+  background: #fff6dd;
+  box-shadow: 0 2px 0 rgba(215, 174, 100, 0.13);
 }
 
 .option-btn.selected .option-key {
   color: white;
-  background: var(--teal);
-  transform: scale(1.06);
-}
-
-.option-btn.selected .option-mark {
-  opacity: 1;
-  transform: scale(1);
-  background: var(--teal);
-  border-color: var(--teal);
-}
-
-.option-btn.selected .option-mark::before {
-  content: "✓";
+  background: #d3ad5c;
+  border-color: #d3ad5c;
 }
 
 .option-btn.correct {
   border-color: var(--teal);
   background: #e8f3ef;
-  box-shadow: 0 6px 0 rgba(95, 159, 150, 0.20), 0 16px 30px rgba(95, 159, 150, 0.12);
+  box-shadow: 0 3px 0 rgba(95, 159, 150, 0.16);
 }
 
-.option-btn.correct .option-key,
-.option-btn.correct .option-mark {
+.option-btn.correct .option-key {
   color: white;
   background: var(--teal);
   border-color: var(--teal);
 }
 
-.option-btn.correct .option-mark {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.option-btn.correct .option-mark::before {
-  content: "✓";
-}
-
 .option-btn.incorrect {
   border-color: var(--coral);
   background: #f2e6e8;
-  box-shadow: 0 6px 0 rgba(201, 121, 97, 0.16), 0 16px 30px rgba(201, 121, 97, 0.11);
-  animation: optionWrong 260ms ease-out;
+  box-shadow: 0 3px 0 rgba(201, 121, 97, 0.12);
 }
 
-.option-btn.incorrect .option-key,
-.option-btn.incorrect .option-mark {
+.option-btn.incorrect .option-key {
   color: white;
   background: var(--coral);
   border-color: var(--coral);
-}
-
-.option-btn.incorrect .option-mark {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.option-btn.incorrect .option-mark::before {
-  content: "×";
-}
-
-.option-btn.selected::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.48) 38%, transparent 72%);
-  translate: -120% 0;
-  animation: optionSheen 520ms ease-out;
-  pointer-events: none;
-}
-
-@keyframes optionSelect {
-  0% {
-    transform: scale(0.992);
-  }
-  60% {
-    transform: scale(1.01);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes optionWrong {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  35% {
-    transform: translateX(-4px);
-  }
-  70% {
-    transform: translateX(4px);
-  }
-}
-
-@keyframes optionSheen {
-  to {
-    translate: 120% 0;
-  }
 }
 
 @keyframes questionEnter {
@@ -1161,17 +1106,6 @@ select:focus {
   }
 }
 
-@keyframes optionRise {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes busyDots {
   0%, 100% {
     opacity: 0.42;
@@ -1186,10 +1120,8 @@ select:focus {
 @media (prefers-reduced-motion: reduce) {
   .option-btn,
   .option-key,
-  .option-mark,
   .option-btn.selected,
   .option-btn.incorrect,
-  .option-btn.selected::after,
   .question-body,
   .is-busy::after,
   .toast {
@@ -1400,11 +1332,12 @@ select:focus {
 
 .source-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
 }
 
 .source-card {
+  min-width: 0;
   min-height: 132px;
   color: var(--ink);
   background: rgba(255, 249, 238, 0.88);
@@ -1418,6 +1351,9 @@ select:focus {
   margin: 0;
   font-size: 15px;
   font-weight: 950;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .source-card p {
@@ -1425,6 +1361,15 @@ select:focus {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.source-card p:first-of-type {
+  color: #647186;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .toast {
@@ -1552,9 +1497,9 @@ select:focus {
   }
 
   .option-btn {
-    grid-template-columns: 34px minmax(0, 1fr) 26px;
+    grid-template-columns: 34px minmax(0, 1fr);
     min-height: 60px;
-    border-radius: 20px;
+    border-radius: 16px;
   }
 
   .message-form-row {

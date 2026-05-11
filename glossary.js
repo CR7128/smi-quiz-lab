@@ -75,7 +75,7 @@
     ["判断规则", "decision rule"],
     ["知识点", "knowledge point"],
     ["课程资料", "course materials"],
-    ["本地题库", "local question bank"],
+    ["课程题库", "question bank"],
     ["题库", "question bank"],
     ["课件", "slides"],
     ["错题", "missed question"],
